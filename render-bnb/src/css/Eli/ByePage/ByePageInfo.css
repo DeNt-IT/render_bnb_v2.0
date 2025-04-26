@@ -1,0 +1,472 @@
+.info-wrap
+{
+    display: flex;
+}
+
+.info-container
+{
+    width: 100%;
+    margin-left: 0.7%;
+
+   
+}
+
+.absol-container
+{
+    width: 70%;
+    margin-top: 20px;
+    
+}
+
+.abcol-block
+{
+
+    margin-left: 18%;
+    position: relative;
+    backdrop-filter: blur(4px);
+    border-radius: 30px 30px 25px 25px;
+    border: 1px solid #211e1a;
+    box-sizing: border-box;
+    height: 360px;
+
+}
+
+
+.title-details
+{
+    margin-top: 20px;
+    height: 7%;
+    font-family: 'Nunito Sans';
+    color: #0e0c0b;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.add-details
+{
+    font-family: 'Nunito Sans';
+    color: #48433d;
+    font-size: 0.85rem;
+    padding-bottom: 2.5%;
+    border-bottom: 1.5px solid #47433C;
+
+
+}
+
+.ilona-img
+{
+    width: 55px;
+    height: 55px;
+
+    margin-top: 3.5%;
+    margin-left: 6%;
+}
+
+
+.price-details
+{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+.price-for-absol
+{
+    font-family: 'Inknut Antiqua';
+    font-size: 0.85rem;
+    margin-right: 40%;
+}
+
+.reting-fot-absol
+{
+    font-family: 'Inknut Antiqua';
+    font-size: 0.75rem;
+    margin-top: 1%;
+    font-weight: 200;
+}
+.star-reting
+{
+    width: 13px;
+    height: 13px;
+
+}
+
+.table-details
+{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    border: 1px solid #211E1A;
+    border-radius: 10px
+
+}
+
+.first-row
+{
+    display: flex;
+
+ 
+    width: 96.5%;
+    height: 30px;
+    padding-bottom: 3%;
+
+    padding-top: 8px;
+    padding-left: 10px;
+    font-size: 0.70rem;
+    font-weight: 600;
+
+    border-bottom: 1px solid #211E1A;
+    color: #48433D
+
+}
+.col1
+{
+    width: 48%;
+    padding-top: 0%;
+    
+    border-right: 1px solid #211E1A;
+
+}
+.col2
+{
+    margin-left: 10px;
+}
+.data1
+{
+    font-weight: 200;
+    font-size: 0.60rem;
+}
+
+
+.second-row
+{
+    width: 96.5%;
+    height: 30px;
+    padding-bottom: 3%;
+
+    padding-top: 8px;
+    padding-left: 10px;
+    font-size: 0.70rem;
+    font-weight: 600;
+
+    color: #48433D
+}
+
+.but-bye
+{
+    margin-top: 5%;
+    width:85%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    background-color: #6F6558;
+    border-radius: 10px;
+    color: #FFFFFF;
+
+    padding: 3%;
+
+    text-align: center;
+
+}
+
+
+
+.conditions
+{
+    margin-top: 5%;
+    margin-left: 9%;
+}
+.title-conditions
+{
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.add-conditions
+{
+    margin-top: 1%;
+    margin-bottom: 3%;
+    font-family: 'Nunito Sans';
+    color: #48433d;
+    font-weight: 200;
+    font-size: 0.80rem;
+
+}
+.more-info
+{
+    margin-top: 6%;
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+    font-size: 0.80rem;
+    padding-bottom: 5%;
+    border-bottom: 1px solid #211E1A;
+}
+.nobye
+{
+    margin-top: 3%;
+    text-align: center;
+    font-family: 'Nunito Sans';
+    color: #48433d;
+
+    font-size: 0.90rem;
+}
+.bye
+{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    display: flex;
+    color: #48433D;
+    font-family: 'Nunito Sans';
+    font-size: 0.90rem;
+}
+
+.how-much
+{
+    width: 80%;
+    text-decoration: underline;
+
+}
+.result
+{
+    width: 20%;
+    
+    text-align: right;
+}
+.bye-result
+{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+
+    padding-top: 2%;
+    width: 90%;
+    display: flex;
+
+    color: #48433D;
+    font-family: 'Nunito Sans';
+    font-size: 0.85rem;
+    
+    border-top: 1px solid #211E1A;
+    font-weight: 600;
+
+}
+.text-result
+{
+    width: 80%;
+
+}
+
+
+
+@media (max-width: 1400px) 
+{
+
+    .title-details
+    {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 1400px) 
+{
+
+    .price-details
+    {
+       
+        font-size: 0.60rem;
+    }
+    .price-for-absol
+    {
+        margin-right: 30%;
+        width: 30%;
+    }
+    .reting-fot-absol
+    {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1300px) 
+{
+
+    .price-details
+    {
+       
+        font-size: 0.60rem;
+    }
+    .price-for-absol
+    {
+        font-size: 0.60rem;
+    }
+    .reting-fot-absol
+    {
+        font-size: 0.60rem;
+    }
+}
+
+
+
+
+
+
+
+
+.bedroom-info-cont
+{
+    margin-top: 50px;
+    padding-bottom: 6%;
+    border-bottom: 1px solid #211E1A;
+
+}
+.title-bedroom
+{
+
+    font-size: 0.90rem;
+    font-weight: 600;
+
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+
+    margin-bottom: 3%;
+}
+.bedroom-img
+{
+    width: 48%;
+    margin-bottom: 3%;
+}
+.add-info-beedroom
+{
+    margin-top: 1%;
+    font-size: 0.85rem; 
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+}
+
+
+
+.facilities-container
+{
+    display: flex;
+    flex-direction: row;
+
+    color: #211E1A;
+    font-size: 0.90rem;
+    padding-bottom: 5%;
+  
+}
+
+.block1-facilities
+{
+    width: 65%;
+
+
+}
+.block2-facilities
+{
+    width: 50%;
+
+}
+
+.bedroom-list-img
+{
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2%;
+}
+
+.bedroom-list
+{
+    margin-top: 2%;
+    margin-right: 2%;
+
+}
+.bloc-img-list
+{
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 2%;
+}
+
+
+.title-facil-list
+{
+
+    margin-top: 5%;
+    margin-bottom: 2%;
+
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+
+}
+
+
+@media (max-width: 1200px) 
+{
+
+    .price-details
+    {
+       
+        font-size: 0.60rem;
+    }
+    .price-for-absol
+    {
+        font-size: 0.60rem;
+
+        margin-right: 20%;
+    }
+    .reting-fot-absol
+    {
+
+        font-size: 0.60rem;
+
+    }
+    .facilities-container
+    {
+
+        flex-direction: column;
+    }
+}
+
+
+
+@media (max-width: 900px) 
+{
+
+    .info-wrap
+    {
+        flex-direction: column;
+    }
+    .abcol-block
+    {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 5%;
+    }
+
+   
+}
+
+@media (max-width: 1400px) 
+{
+
+    .bloc-img-list
+    {
+        font-size: 0.60rem;
+    }
+}

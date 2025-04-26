@@ -1,0 +1,342 @@
+/* AdminPanel.css */
+
+.admin-panel-container {
+    width: 92%;
+    margin: 2% 4%;
+    font-family: 'Inknut Antiqua', Arial, sans-serif;
+    background-color: #DDDBD7;
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.admin-header h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #211e1a;
+}
+
+.admin-add-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    font-family: 'Inknut Antiqua', Arial, sans-serif;
+    color: #fff;
+    background-color: #6F6558;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-add-btn:hover {
+    background-color: #5a5347;
+}
+
+.admin-products-table {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table-header {
+    display: flex;
+    background-color: #6F6558;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.admin-th, .admin-td {
+    padding: 0.8rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.admin-th.image-cell, .admin-td.image-cell {
+    flex: 0.7;
+}
+
+.admin-th.actions-cell, .admin-td.actions-cell {
+    flex: 0.8;
+    justify-content: flex-end;
+}
+
+.admin-table-row {
+    display: flex;
+    border-bottom: 1px solid #e5e3e0;
+    font-size: 0.65rem;
+    color: #2c2823;
+}
+
+.admin-table-row:last-child {
+    border-bottom: none;
+}
+
+.admin-product-image {
+    width: 60px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.admin-edit-btn, .admin-delete-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.65rem;
+    font-family: 'Inknut Antiqua', Arial, sans-serif;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.admin-edit-btn {
+    background-color: #6F6558;
+    color: #fff;
+}
+
+.admin-edit-btn:hover {
+    background-color: #5a5347;
+}
+
+.admin-delete-btn {
+    background-color: #933a3a;
+    color: #fff;
+}
+
+.admin-delete-btn:hover {
+    background-color: #7a2e2e;
+}
+
+/* Modal styles */
+.admin-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.admin-modal {
+    width: 90%;
+    max-width: 500px;
+    background-color: #DDDBD7;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #6F6558;
+    color: #fff;
+}
+
+.admin-modal-header h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.admin-close-modal {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.admin-form {
+    padding: 1rem;
+}
+
+.admin-form-group {
+    margin-bottom: 1rem;
+}
+
+.admin-form-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #2c2823;
+    margin-bottom: 0.3rem;
+}
+
+.admin-form-group input {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 0.7rem;
+    border: 1px solid #6F6558;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #2c2823;
+    box-sizing: border-box;
+}
+
+.admin-image-upload {
+    margin-top: 0.5rem;
+}
+
+.admin-image-preview {
+    margin-bottom: 0.5rem;
+}
+
+.admin-preview-image {
+    width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.admin-file-input {
+    width: 100%;
+    padding: 0.5rem 0;
+}
+
+.admin-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.admin-cancel-btn, .admin-submit-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    font-family: 'Inknut Antiqua', Arial, sans-serif;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-cancel-btn {
+    background-color: #ccc;
+    color: #2c2823;
+}
+
+.admin-cancel-btn:hover {
+    background-color: #bbb;
+}
+
+.admin-submit-btn {
+    background-color: #6F6558;
+    color: #fff;
+}
+
+.admin-submit-btn:hover {
+    background-color: #5a5347;
+}
+
+/* Responsive styles */
+@media (max-width: 1100px) {
+    .admin-panel-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .admin-table-header, .admin-table-row {
+        font-size: 0.6rem;
+    }
+    
+    .admin-th, .admin-td {
+        padding: 0.6rem;
+    }
+    
+    .admin-product-image {
+        width: 50px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 700px) {
+    .admin-table-header, .admin-table-row {
+        display: block;
+    }
+    
+    .admin-table-header {
+        display: none;
+    }
+    
+    .admin-table-row {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .admin-td {
+        display: flex;
+        padding: 0.4rem 0;
+        font-size: 0.7rem;
+    }
+    
+    .admin-td:before {
+        content: attr(data-label);
+        font-weight: 500;
+        width: 40%;
+        margin-right: 5%;
+    }
+    
+    .admin-td.image-cell {
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .admin-product-image {
+        width: 100%;
+        height: auto;
+        max-height: 150px;
+    }
+    
+    .admin-td.actions-cell {
+        justify-content: flex-start;
+        margin-top: 0.5rem;
+    }
+    
+    .admin-edit-btn, .admin-delete-btn {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .admin-add-btn {
+        width: 100%;
+    }
+    
+    .admin-form-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .admin-cancel-btn, .admin-submit-btn {
+        width: 100%;
+    }
+}

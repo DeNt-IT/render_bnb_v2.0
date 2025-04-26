@@ -1,0 +1,236 @@
+.nav-container 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.3% 4.2% 0% 4%;
+    gap: 1rem;
+}
+.category-container 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative; 
+    overflow: hidden;
+}
+.filter-container 
+{
+    margin-bottom: 0.5%;
+    width: 10%;
+    height: 100%;
+    text-align: center;
+}
+.price-container
+{
+    margin-bottom: 0.5%;
+    width: 20%;
+    height: 100%;
+}
+.nav-category-wrapper 
+{
+    width: calc(100% - 80px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+
+.nav-category
+{
+    display: flex;
+    gap: 2.1rem;
+    font-size: 0.65rem;
+    font-weight: 500;
+    font-family: 'Inknut Antiqua';
+    color: #211e1a;
+    overflow-x: hidden; 
+    scroll-behavior: smooth; 
+    white-space: nowrap; 
+
+    margin-left: 1%;
+    padding-right: 5%;
+}
+
+.category-item 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-filter-btn 
+{
+    padding: 0.4rem 1rem;
+    font-size: 0.67rem;
+    font-weight: 500;
+    font-family: 'Inknut Antiqua';
+    color: #2c2823;
+    cursor: pointer;
+    border-radius: 26px;
+    border: 1px solid #6f6558;
+    box-sizing: border-box;
+    height: 40px;
+    margin-left: 15%;
+}
+
+.nav-price 
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 15rem;
+    position: relative;
+    border-radius: 26px;
+    border: 1px solid #6f6558;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 2%;
+    text-align: center;
+    justify-content: center;
+}
+.pricetext 
+{
+    position: relative;
+    font-size: 0.65rem;
+    font-weight: 500;
+    font-family: 'Inknut Antiqua';
+    color: #2c2823;
+    text-align: left;
+    display: inline-block;
+}
+.nav-price-btn
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.price-switch
+{
+    position: relative;
+    display: inline-block;
+    width: 39px;
+    height: 21px;
+    vertical-align: middle;
+    background-color: #6F6558;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.switch 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #6F6558;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.switch.checked { background-color: #ccc; }
+
+.switch-circle 
+{
+    position: absolute;
+    top: 2.5px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+.switch.checked .switch-circle { transform: translateX(18px); }
+
+.highlighted { border-bottom: 2px solid black; }
+
+.category-item img 
+{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.arrow-left,
+.arrow-right 
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 50px;
+    background-color: rgba(221, 219, 215, 0.779);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    display: none; 
+    z-index: 1; 
+
+}
+
+.arrow-left { left: 0; }
+
+.arrow-right { right: 0; }
+
+.arrow-left::after,
+.arrow-right::after 
+{
+    content: '';
+    width: 8px;
+    height: 8px;
+    border: solid #2c2823c1;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+}
+
+.arrow-left::after { transform: rotate(135deg); }
+
+.arrow-right::after { transform: rotate(-45deg); }
+
+.show-arrow { display: flex !important; }
+
+
+
+@media (max-width: 1220px) 
+{
+
+
+    .price-container
+    {
+        margin-right: 1%;
+    }
+}
+@media (max-width: 1100px) 
+{
+    .filter-container
+    {
+        display: none;
+    }
+
+    .nav-container
+    {
+        padding-right: 3%;
+    }
+
+    .price-container
+    {
+        width: 30%;
+        padding-left: 1%;
+        margin-left: 0%;
+    }
+}
+@media (max-width: 850px) 
+{
+    .price-container
+    {
+        display: none;
+    }
+}

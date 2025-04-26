@@ -1,0 +1,181 @@
+.prof-p-wrapper {
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: #dddbd7;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.prof-main-wrapper {
+
+    width: 100%;
+    height: 83vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+
+.p-left-main-container {
+
+    width: 40%;
+    height: inherit;
+
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    padding-right: 6rem;
+    padding-top: 1rem;
+}
+
+.p-left-main-container>img {
+
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
+}
+
+.p-right-main-container {
+
+    width: 60%;
+    height: inherit;
+
+    display: flex;
+    flex-direction:column;
+    
+    padding-left: 6rem;
+}
+
+.p-r-main-text {
+
+    width: 50%;
+    height: 15%;
+
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+    font-size: 0.875rem;
+
+    gap: 1rem;
+}
+
+.p-r-main-form-c {
+
+    width: 70%;
+    height: 60%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.p-r-main-form-l-r {
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.p-r-main-form-box {
+
+    width: 100%;
+    height: 16.66%;
+    
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.p-r-main-form-box>input {
+
+    border: none;
+    outline:#211e1a;
+    background-color: #dddbd7;
+
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+    font-size: 1rem;
+
+    padding-left: 1rem;
+}
+
+.p-r-main-form-box>hr {
+
+    width: 100%;
+}
+
+.p-footer-wrapper-g {
+
+    width: 100%;
+    height: 4.23vh;
+
+    display: flex;
+    flex-direction: row;
+
+    border-top: #211e1a 1px solid;
+}
+
+.p-f-left-c {
+
+    width: 50%;
+    height: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5rem;
+    padding-left: 7em;
+
+    font-size: 0.75rem;
+    text-decoration: underline;
+    font-family: Inder;
+    color: #6f6558;
+}
+
+.p-f-right-c {
+
+    width: 50%;
+    height: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.5rem;
+    padding-right: 7em;
+
+    font-size: 0.75rem;
+    font-family: Inder;
+    color: #6f6558;
+}
+
+.form-button {
+
+    width: 70%;
+    height: 3.1875rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 1rem;
+    background: #6F6558;
+
+    color: #FFF;
+
+    font-family: "Nunito Sans";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.0625rem; 
+    cursor: pointer;
+
+}

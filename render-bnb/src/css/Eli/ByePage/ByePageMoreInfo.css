@@ -1,0 +1,154 @@
+.add-info-for-bye
+{
+    margin-top: 5%;
+    margin-left: 0.7%;
+    border-top: 1px solid #211E1A;
+    padding-top: 5%;
+    margin-bottom: 5%;
+}
+.rev-cont
+{
+    width: 100%;
+    display: flex;
+    margin-top: 8%;
+}
+.col1-rev
+{
+    width: 50%;
+    font-size: 0.90rem;
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+
+}
+.col2-rev
+{
+    width: 45%;
+    margin-left: 5%;
+    font-size: 0.90rem;
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+}
+.rev-block
+{
+    align-items: center;
+    display: flex;
+    margin-bottom: 1%;
+
+}
+.name-rev
+{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 2%;
+}
+
+.num-rev
+{
+    height: 130px;
+}
+
+.rev
+{
+    width: 40px;
+    height: 40px;
+}
+
+.top-reting
+{
+    display: flex;
+    font-size: 0.80rem;
+    align-items: center;
+    font-weight: 500;
+    font-family: 'Inknut Antiqua';
+    color: #211e1a;
+    margin-bottom: 5%;
+}
+
+.colum-rei1
+{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+.colum-rei2
+{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    width: 40%;
+
+}
+.colum-rei
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.row-rai
+{
+    width: 100px;
+    border-top: 2px solid  black;
+
+    margin-top: 2%;
+    margin-left: 30%;
+    margin-right: 2%;
+}
+.row-rai2
+{
+    width: 100px;
+    border-top: 2px solid  black;
+
+    margin-top: 2%;
+    margin-left: 24%;
+    margin-right: 2%;
+}
+
+.row-rai3
+{
+    width: 100px;
+    border-top: 2px solid  black;
+
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 2%;
+}
+
+@media (max-width: 900px) 
+{
+    .add-info-for-bye
+    {
+
+        width: 100%;
+        margin-left: 0%;
+        
+    }
+    .rev-cont
+    {
+        flex-direction: column;
+    }
+    .col1-rev
+    {
+        width: 100%;
+    }
+    .col2-rev
+    {
+        width: 100%;
+        margin-left: 0%;
+    }
+    .num-rev
+    {
+        height: 110px;
+    }
+
+}
+
+@media (max-width: 700px) 
+{
+
+    .colum-rei
+    {
+        display: none;
+    }
+}

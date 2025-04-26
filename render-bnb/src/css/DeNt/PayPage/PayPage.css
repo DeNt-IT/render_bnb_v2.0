@@ -1,0 +1,530 @@
+.pay-page-wrapper {
+
+    width: 100%;
+    height: 200vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #DDDBD7;
+}
+
+.pp-header-wrapper {
+
+    width: 100%;
+    height: 12vh;
+
+    display: flex;
+    
+    border-bottom: 1px solid #47433C;
+}
+
+.pp-header-logo-container {
+
+    width: 3vw;
+    height: inherit;
+
+    display: flex;
+
+    align-items: end;
+
+    padding-left: 1.1vw;
+}
+
+.pp-header-logo {
+
+    color: #211E1A;
+
+    font-family: "Inknut Antiqua";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.pp-main-wrapper {
+
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.pp-right-main-container {
+
+    width: 48%;
+    height: inherit;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: start;
+
+    padding-top: 9.19rem;
+
+    margin-left: 2%;
+}
+
+.pp-left-main-container {
+
+    width: 48%;
+    height: inherit;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: end;
+
+    padding-top: 2.87rem;
+
+    margin-right: 2%;
+}
+
+.pp-right-main-content-container {
+
+    width: 29.25rem;
+    height: 23.8125rem;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1.37rem;
+
+    gap: 1rem;
+
+    border-radius: 1rem;
+    border: 1px solid #211E1A;
+}
+
+.top-sec {
+
+    width: 100%;
+    height: 8.25rem;
+
+    display: flex;
+    flex-direction: row;
+
+    gap: 0.75rem;
+
+    border-bottom: 1px solid #47433C;
+
+}
+
+.top-sec-pic-cont {
+
+    width: 7.75rem;
+    height: 6.6875rem;
+
+    background: url("../../../assets/imgs/DeNt/PayPage/Rectangle120.png");
+}
+
+.top-sec-txt-container {
+
+    width: 13.31rem;
+    height: 7.25rem;
+
+    display: flex;
+    flex-direction: column;
+
+    color: #211E1A;
+    gap: 0.3rem;
+
+    font-family: "Nunito Sans";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0625rem;
+}
+
+.mid-sec {
+
+    width: 100%;
+    height: 9.66rem;
+
+    display: flex;
+    flex-direction: column;
+
+
+    border-bottom: 1px solid #47433C;
+}
+
+.mid-sec-div {
+
+    width: 100%;
+    height: 33.3%;
+    
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0625rem;
+}
+
+.bot-sec {
+
+    width: 100%;
+    height: 4.53rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.0625rem;
+}
+
+.pp-left-main-content-container {
+
+    width: 29.21vw;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.75rem;
+}
+
+/* ---------------------------------- */
+
+
+
+
+.pp-l-top-txt-c {
+
+    width: 100%;
+
+    color: #211E1A;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    font-family: "Nunito Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.ad-cont {
+
+    width: 100%;
+    height: 6rem;
+
+    border-radius: 1rem;
+    border: 1px solid #211E1A;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ad-cont-text {
+
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 1.75rem;
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0625rem;
+}
+
+.trip-container {
+
+    width: 100%;
+
+    padding-bottom: 2.09rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    border-bottom: 1px solid #47433C;
+
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.trip-text-container {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.t-txt-top {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.0625rem;
+}
+
+.pay-container {
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    padding-bottom: 2.19rem;
+
+    border-bottom: 1px solid #47433C;
+
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.pay-opt-container {
+
+    width: 100%;
+    height: 10.88rem;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 1rem;
+    border: 1px solid #211E1A;
+
+
+}
+
+.pay-opt-var-cont {
+
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    border-bottom: 1px solid #211E1A;
+
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0625rem;
+}
+
+.pay-method-container {
+
+    width: 100%;
+    height: 23.75rem;
+    
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    border-bottom: 1px solid #47433C;
+}
+
+.pay-line {
+
+    width: 100%;
+    height: 3.5rem;
+
+    border-radius: 1rem;
+    border: 1px solid #211E1A;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #48433D;
+
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0625rem;
+}
+
+
+.double-p-line {
+
+    width: 100%;
+    height: 7rem;
+
+    border-radius: 1rem;
+    border: 1px solid #211E1A;
+
+    display: flex;
+    flex-direction: column;
+
+    color: #48433D;
+
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0625rem;
+}
+
+.double-p-line input {
+
+    width: 100%;
+
+    border: none;
+    outline:#211e1a;
+    background-color: #dddbd7;
+
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+    font-size: 1rem;
+
+    padding-left: 1rem;
+}
+
+.d-p-l-sec {
+
+    width: 100%;
+    height: 3.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid #211E1A;
+}
+
+.dpl-bot-sec {
+
+    width: 100%;
+    height: 3.5rem;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.dpl-bot-sec-sec {
+
+    width: 50%;
+    height: inherit;
+
+    display: flex;
+    align-items: center;
+}
+
+.pay-line input {
+
+    width: 100%;
+
+    border: none;
+    outline:#211e1a;
+    background-color: #dddbd7;
+
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+    font-size: 1rem;
+
+    padding-left: 1rem;
+}
+
+.cancel-rules-container {
+
+    width: 100%;
+    height: 9.88rem;
+
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    border-bottom: 1px solid #211e1a;
+}
+
+.rules-container {
+
+    width: 100%;
+    height: 13.25rem;
+
+    display: flex;
+    flex-direction: column;
+
+    color: #211E1A;
+
+    font-family: "Nunito Sans";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0625rem;
+
+    gap: 1.5rem;
+
+    border-bottom: 1px solid #211e1a;
+}
+
+.pay-button {
+
+    width: 100%;
+    height: 3.1875rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    border-radius: 1rem;
+    background: #6F6558;
+
+    color: #FFF;
+
+    font-family: "Nunito Sans";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.0625rem;
+}

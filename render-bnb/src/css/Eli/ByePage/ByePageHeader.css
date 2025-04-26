@@ -1,0 +1,354 @@
+.ByePage-wrap
+{
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #DDDBD7;
+}
+.headerByePage-wrapper
+{
+
+    width: 100%;
+    height: 12.77vh;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    
+
+}
+
+.top-row-headerByePage
+{
+    width: 100%;
+    height: 6rem;
+
+    display: flex;
+    flex-direction: row;
+
+    padding-top: 1.5%;
+}
+
+
+
+.logoByePage-container 
+{
+
+    width: 18%;
+    height: inherit;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: 20.5%;
+
+}
+.logoByePage
+{
+    font-size: 1.25rem;
+
+    font-weight: 500;
+    font-family: 'Inknut Antiqua';
+
+    color: #211e1a;
+    cursor: pointer;
+
+    margin-top: 4%;
+
+    text-align: right;
+    display: inline-block;
+}
+
+
+
+
+.searchByePage-container 
+{
+    padding-top: 0.7%;
+    width: 19%; 
+
+    display: flex; 
+    align-items: center; 
+    
+}
+.searchByePage
+{
+    font-size: 0.65rem;
+    font-weight: 500;
+    font-family: 'Nunito Sans';
+    color: #211e1a; 
+   
+
+
+    
+    white-space: nowrap;
+    
+}
+
+
+
+
+
+.linkByePage-container 
+{
+    width: 17%;
+
+    padding-left: 0.3%;
+
+    display: flex;
+    align-items: center;
+
+
+}
+.linkByePage
+{
+
+    width: 15.81rem;
+    font-size: 0.70rem;
+
+    font-weight: 500;
+    font-family: 'Inknut Antiqua';
+    text-decoration: underline;
+
+    color: #211e1a;
+    cursor: pointer;
+
+
+    padding-top: 4%;
+
+    text-align: left;
+    display: inline-block;
+
+}
+
+
+
+
+.userByePage-container 
+{
+
+    width: 9%;
+    height: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    padding-left: 0.5%;
+
+}
+.userByePage-wrap
+{
+
+    width: 4.5rem;
+    height: 2.438rem;
+
+    border-radius: 26px;
+    border: 1px solid #211e1a;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+
+    margin-top: 6%;
+
+    padding-left: 3%;
+    cursor: pointer;
+
+   
+}
+.burgerByePage-container 
+{
+    width: 50%;
+    height: inherit;
+
+    font-size: 0.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.usericonByePage-container 
+{
+    width: 50%;
+    height: inherit;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+
+}
+
+.irina-userByePage
+{
+    width: 20px;
+    height: 20px;
+}
+
+
+
+
+.search-ByePage
+{
+    
+    width: 15.6rem;
+    height: 2.5rem;
+    border-radius: 19px;
+    border: 1px solid #2c2823;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
+    margin-left: 10%;
+    padding-left: 0%;
+}
+.first-itemByePage
+{
+    
+
+    margin-bottom: 1%;
+    margin-left: 8%;
+    width: 40%; 
+}
+.search-labelByePage
+{
+    padding-top: 2%;
+    font-family: 'Nunito Sans';
+    font-size: 0.80rem;
+    font-weight: 500;
+
+    overflow: hidden; 
+}
+.search-labelByePage 
+{
+    
+    color: #211e1a;
+    margin-bottom: 0rem; 
+}
+.search-iconByePage 
+{
+    width: 2rem;
+    height: 2rem;
+    background-color: #6F6558;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 0.3rem; 
+    margin-left: 6%
+}
+.search-iconByePage::before 
+{
+    content: '';
+    display: inline-block;
+
+    background-size: cover;
+}
+.search-imgByePage
+{
+    width: 18px;
+    height: 18px;
+}
+
+
+
+
+@media (max-width: 1400px) 
+{
+    .logoByePage-container
+    {
+       
+        width: 10%;
+        margin-right: 0%;
+        padding-right: 0%;
+
+    }
+
+    .searchByePage
+    {
+        margin-left: 0%;
+    }
+    .linkByePage-container
+    {
+        padding-left: 5%;
+        width: 20%;
+    }
+}
+
+
+@media (max-width: 1100px) 
+{
+    .logoByePage-container
+    {
+        margin-left: 10%;
+    }
+    .logoByePage-container
+    {
+       
+        width: 18%;
+        margin-right: 0%;
+        padding-right: 0%;
+
+    }
+
+    .linkByePage-container
+    {
+        padding-left: 10%;
+        width: 27%;
+
+    }
+}
+
+@media (max-width: 900px) 
+{
+
+    .linkByePage-container
+    {
+        display: none;
+    }
+
+    .searchByePage-container
+    {
+        width: 54%;
+    }
+
+}
+
+
+@media (max-width: 700px) 
+{
+    .logoByePage-container
+    {
+        margin-left: 5%;
+        width: 25%;
+    }
+
+    .userByePage-container
+    {
+        width: 20%;
+    }
+
+}
+
+@media (max-width: 500px) 
+{
+    .searchByePage
+    {
+        display: none;
+    }
+
+}

@@ -1,0 +1,161 @@
+.card-container 
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-left: 4.2%;
+    margin-right: 4%;
+
+    margin-top: 1.2%;
+}
+
+.card 
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    width: calc(16% - 0.5rem);
+
+    
+    overflow: hidden;
+   
+}
+
+.card-image 
+{
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    max-width: 100%;
+    overflow: hidden;
+    height: 75%;
+    object-fit: cover;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.card-info 
+{
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.card-info .location 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.card-info .location
+{
+    display: flex;
+    align-items: center;
+}
+
+.card-info .location .star-rating img 
+{
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+}
+
+.card-info .location .star-rating span 
+{
+    font-weight: normal;
+}
+
+.card-info .description,
+.card-info .price {
+    margin-top: 0rem;
+}
+
+.addinfo
+{
+    font-size: 0.65rem;
+    color: #6f6558;
+    margin-bottom: 1%;
+}
+
+.price
+{
+    width: 139px;
+    position: relative;
+    font-size: 10px;
+    font-weight: 500;
+    font-family: 'Inknut Antiqua';
+    color: #433d35;
+    text-align: left;
+    display: inline-block;
+    height: 26px;
+    margin-bottom: 7%;
+}
+.location
+{
+    font-family: 'Inknut Antiqua';
+    font-size: 0.82rem;
+    margin-top: 0.5%;
+}
+
+.star-ratingMain
+{
+    font-size: 0.75rem;
+
+    font-family: 'Nunito Sans';
+}
+.star-img-main
+{
+    width: 13px;
+    height: 13px;
+}
+.heart-icon 
+{
+    position: absolute;
+    top: 15px; 
+    right: 11.3px; 
+    width: 17px; 
+    height: 15px; 
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+@media (min-width: 1200px) 
+{
+    .card { width: calc(16% - 0.5rem); }
+}
+
+@media (max-width: 1100px) and (min-width: 768px) 
+{
+    .card { width: calc(24% - 0.5rem); }
+}
+
+@media (max-width: 860px) and (min-width: 576px) 
+{
+    .card { width: calc(32% - 0.5rem); }
+}
+
+@media (max-width: 680px) and (min-width: 400px) 
+{
+    .card { width: calc(48% - 0.5rem); }
+}
+
+@media (max-width: 500px) 
+{
+    .card 
+    {
+        width: calc(98% - 0.5rem);
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+}
