@@ -19,6 +19,7 @@ function App() {
 
     <Routes>
         <Route path = "/" element={<MainPage />} />
+        <Route path = "/admin" element={<AdminPanel />} />
         <Route path = "/authpage" element={<AuthPages />} />
         <Route path = "/byepage" element={<ByePage />} />
         <Route path='/guestpage' element={<GuestPage />} />
