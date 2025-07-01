@@ -27,7 +27,7 @@ export const PLeftMain = ({ image, setImage }) => {
 
   return (
     <div className="p-left-main-container">
-      <img alt="pfp" src={image || profilePic || pfp} />
+      <img alt="pfp" src={image || profilePic} />
       <input type="file" accept="image/*" onChange={handleFile} />
     </div>
   );

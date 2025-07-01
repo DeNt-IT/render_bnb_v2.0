@@ -90,7 +90,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     flex-direction: row;
 
     margin-left: 3%;
@@ -127,7 +127,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin-right: 0.5rem;
 }
 
@@ -196,6 +196,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.left-main-top-section-pfp-container > img {
+
+    width: 45%;
+    height: 130%;
+    border-radius: 100px;
 }
 
 .left-main-top-section-name-container {
