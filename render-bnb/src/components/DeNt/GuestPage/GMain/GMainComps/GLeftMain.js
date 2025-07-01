@@ -3,7 +3,8 @@ import pfp from "../../../../../assets/imgs/DeNt/GuestPage/Ellipse682.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
-
+import { useEffect } from "react";
+import { fetchCurrentUser } from "../../../../../services/currentUserService";
 
 function GLeftMain() {
 

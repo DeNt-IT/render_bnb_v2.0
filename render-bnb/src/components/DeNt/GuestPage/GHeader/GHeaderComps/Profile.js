@@ -28,16 +28,6 @@ function Profile() {
 
     return (
         <div className='profile-wrapper'>
-            <div className='profile-burger-container'>
-                <FontAwesomeIcon icon={faBars} />
-            </div>
-            <div className='profile-user-container'>
-                {profilePic ? (
-                    <img src={profilePic} alt='User' className='irina-user' />
-                ) : (
-                    <FontAwesomeIcon icon={faUser} />
-                )}
-            </div>
             <button className='profile-logout-btn' onClick={handleLogout}>Log Out</button>
         </div>
     );
