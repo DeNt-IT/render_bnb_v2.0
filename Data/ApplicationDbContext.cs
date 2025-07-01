@@ -13,6 +13,7 @@ namespace Render_BnB_v2.Data
         
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,12 @@ namespace Render_BnB_v2.Data
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<Profile>()
+                .HasOne(p => p.User)
+                .WithOne()
+                .HasForeignKey<Profile>(p => p.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
