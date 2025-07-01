@@ -1,17 +1,30 @@
-import "../../../../../css/DeNt/GuestPage/GuestPage.css"
+import "../../../../../css/DeNt/GuestPage/GuestPage.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { fetchCurrentUser } from "../../../../services/currentUserService";
+
 function GRightMain() {
-
     const navigate = useNavigate();
+    const [profile, setProfile] = useState(null);
 
-    function handleClickProf(event) {
+    useEffect(() => {
+        fetchCurrentUser().then(setProfile).catch(() => {});
+    }, []);
 
+    function handleClickProf() {
         navigate("/profeditpage");
     }
 
     return(
-
         <div className="right-main-wrapper">
+            {profile && (
+                <div className="profile-info-form">
+                    <div>Університет: {profile.university}</div>
+                    <div>Мови: {profile.languages}</div>
+                    <div>Професія: {profile.job}</div>
+                    <div>Цікавий факт: {profile.funFact}</div>
+                </div>
+            )}
             <div className="right-main-content-container">
                 <div className="right-main-content-text-container">
                     <div style = {{marginTop: 15, fontSize: 20}} className="right-main-text">

@@ -14,21 +14,18 @@ namespace Render_BnB_v2.Controllers
     public class ProfileController : ControllerBase
     {
         private readonly IProfileService _profileService;
+        private readonly ICurrentUserService _currentUser;
 
-        public ProfileController(IProfileService profileService)
+        public ProfileController(IProfileService profileService, ICurrentUserService currentUserService)
         {
             _profileService = profileService;
+            _currentUser = currentUserService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetProfile()
         {
-            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? User.FindFirstValue("sub");
-            if (userIdClaim == null)
-                return Unauthorized();
-            int userId = int.Parse(userIdClaim);
-
-            var profile = await _profileService.GetProfileAsync(userId);
+            var profile = await _currentUser.GetCurrentProfileAsync();
             if (profile == null)
                 return NotFound();
             return Ok(profile);
@@ -37,12 +34,11 @@ namespace Render_BnB_v2.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveProfile([FromBody] UpdateProfileDto dto)
         {
-            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? User.FindFirstValue("sub");
-            if (userIdClaim == null)
+            var userId = _currentUser.GetCurrentUserId();
+            if (userId == null)
                 return Unauthorized();
-            int userId = int.Parse(userIdClaim);
 
-            var profile = await _profileService.SaveProfileAsync(userId, dto);
+            var profile = await _profileService.SaveProfileAsync(userId.Value, dto);
             return Ok(profile);
         }
     }

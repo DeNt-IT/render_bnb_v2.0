@@ -367,3 +367,12 @@
     cursor: pointer;
     padding-left: 1;
 }
+
+.profile-info-form {
+    margin-bottom: 2rem;
+    font-family: 'Nunito Sans';
+    color: #211e1a;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
