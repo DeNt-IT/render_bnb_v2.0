@@ -13,21 +13,22 @@ import AdminPanel from './components/Eli/adminpanel/AdminPanel';
 import AuthPages from './components/DeNt/AuthPages/AuthPages';
 
 import { Router, Route, useNavigate, Routes } from 'react-router-dom';
+import RequireAuth from './components/RequireAuth';
 
 function App() {
   return (
 
     <Routes>
         <Route path = "/" element={<MainPage />} />
-        <Route path = "/admin" element={<AdminPanel />} />
+        <Route path = "/admin" element={<RequireAuth><AdminPanel /></RequireAuth>} />
         <Route path = "/authpage" element={<AuthPages />} />
         <Route path = "/byepage" element={<ByePage />} />
-        <Route path='/guestpage' element={<GuestPage />} />
-        <Route path='/veripage1' element={<VeriPage1 />} />
-        <Route path='/veripage2' element={<VeriPage2 />} />
-        <Route path='/paypage' element={<PayPage />} />
-        <Route path='/profeditpage' element={<ProfEditPage />} />
-        <Route path='/veripage3' element={<VeriPage3 />} />
+        <Route path='/guestpage' element={<RequireAuth><GuestPage /></RequireAuth>} />
+        <Route path='/veripage1' element={<RequireAuth><VeriPage1 /></RequireAuth>} />
+        <Route path='/veripage2' element={<RequireAuth><VeriPage2 /></RequireAuth>} />
+        <Route path='/paypage' element={<RequireAuth><PayPage /></RequireAuth>} />
+        <Route path='/profeditpage' element={<RequireAuth><ProfEditPage /></RequireAuth>} />
+        <Route path='/veripage3' element={<RequireAuth><VeriPage3 /></RequireAuth>} />
       </Routes>
   );
 }

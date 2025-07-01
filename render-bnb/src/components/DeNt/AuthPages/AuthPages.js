@@ -27,7 +27,11 @@ const Login = ({ onSwitchToSignUp }) => {
     try {
       const result = await loginUser(formData);
       console.log('Login successful:', result);
-      window.location.href = '/';
+      if (formData.login === 'admin') {
+        window.location.href = '/admin';
+      } else {
+        window.location.href = '/guestpage';
+      }
     } catch (error) {
       setError(error.message || 'Login failed. Please try again.');
     } finally {
