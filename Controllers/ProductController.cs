@@ -1,6 +1,7 @@
 // Controllers/ProductsController.cs
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Render_BnB_v2.Models.DTOs;
 using Render_BnB_v2.Services;
 
@@ -8,6 +9,7 @@ namespace Render_BnB_v2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;

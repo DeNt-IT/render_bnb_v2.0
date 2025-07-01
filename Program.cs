@@ -31,6 +31,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProfileService, ProfileService>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 // Add JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -53,6 +55,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Seed admin account
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+    await SeedAdminUser(context, config);
+}
 
 // Configure the HTTP pipeline
 if (app.Environment.IsDevelopment())
@@ -101,3 +111,22 @@ else
 app.UseMiddleware<SpaFallbackMiddleware>(reactBuildPath);
 
 app.Run();
+
+static async Task SeedAdminUser(ApplicationDbContext context, IConfiguration configuration)
+{
+    var login = configuration["Admin:Login"] ?? "admin";
+    var email = configuration["Admin:Email"] ?? "admin@example.com";
+    var password = configuration["Admin:Password"] ?? "admin123";
+
+    if (!await context.Users.AnyAsync(u => u.Login == login))
+    {
+        var user = new Render_BnB_v2.Models.User
+        {
+            Login = login,
+            Email = email,
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(password)
+        };
+        context.Users.Add(user);
+        await context.SaveChangesAsync();
+    }
+}
