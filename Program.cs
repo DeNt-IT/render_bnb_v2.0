@@ -4,8 +4,6 @@ using Microsoft.IdentityModel.Tokens;
 using Render_BnB_v2.Data;
 using Render_BnB_v2.Services;
 using System.Text;
-using Microsoft.Extensions.FileProviders;
-using Render_BnB_v2.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,9 +13,9 @@ builder.Services.AddControllers();
 // Configure CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("Frontend", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:3000")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -79,35 +77,12 @@ else
 }
 
 // Enable CORS
-app.UseCors("AllowAll");
+app.UseCors("Frontend");
 
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-// Setup static files from the React build folder
-var reactBuildPath = Path.Combine(Directory.GetCurrentDirectory(), "render-bnb", "build");
-if (Directory.Exists(reactBuildPath))
-{
-    app.UseStaticFiles(new StaticFileOptions
-    {
-        FileProvider = new PhysicalFileProvider(reactBuildPath),
-        RequestPath = ""
-    });
-
-    // Handle all other requests by serving the React app's index.html
-    app.MapFallbackToFile("index.html", new StaticFileOptions
-    {
-        FileProvider = new PhysicalFileProvider(reactBuildPath)
-    });
-}
-else
-{
-    Console.WriteLine($"WARNING: React build folder not found at {reactBuildPath}");
-}
-
-app.UseMiddleware<SpaFallbackMiddleware>(reactBuildPath);
 
 // API controllers
 app.MapControllers();
