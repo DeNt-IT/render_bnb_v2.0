@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchCurrentUser } from "../../../../../services/currentUserService";
 
 export const PRightMain = ({ image }) => {
   const navigate = useNavigate();
@@ -10,6 +11,29 @@ export const PRightMain = ({ image }) => {
     skill: "", time: "", job: "", lang: "",
     song: "", fact: "", bio: "", pets: ""
   });
+
+  useEffect(() => {
+    fetchCurrentUser()
+      .then(u => {
+        if (u) {
+          setProfile({
+            university: u.university || "",
+            living:     u.livingPlace || "",
+            bd:         u.birthDecade || "",
+            interest:   u.interest || "",
+            skill:      u.skill || "",
+            time:       u.timeSpent || "",
+            job:        u.job || "",
+            lang:       u.languages || "",
+            song:       u.favoriteSong || "",
+            fact:       u.funFact || "",
+            bio:        u.bioHeadline || "",
+            pets:       u.pets || ""
+          });
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   // 2) Generic change handler
   const handleChange = (e) => {
