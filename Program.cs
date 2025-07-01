@@ -50,6 +50,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddAuthorization();
+
 // Add Swagger for development
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -79,8 +81,10 @@ else
 // Enable CORS
 app.UseCors("AllowAll");
 
-// API controllers
-app.MapControllers();
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 // Setup static files from the React build folder
 var reactBuildPath = Path.Combine(Directory.GetCurrentDirectory(), "render-bnb", "build");
@@ -92,11 +96,6 @@ if (Directory.Exists(reactBuildPath))
         RequestPath = ""
     });
 
-    app.UseRouting();
-
-    app.UseAuthentication();
-    app.UseAuthorization();
-    
     // Handle all other requests by serving the React app's index.html
     app.MapFallbackToFile("index.html", new StaticFileOptions
     {
@@ -109,6 +108,9 @@ else
 }
 
 app.UseMiddleware<SpaFallbackMiddleware>(reactBuildPath);
+
+// API controllers
+app.MapControllers();
 
 app.Run();
 
