@@ -27,8 +27,7 @@ const Login = ({ onSwitchToSignUp }) => {
     try {
       const result = await loginUser(formData);
       console.log('Login successful:', result);
-      // Redirect to dashboard or home page
-      window.location.href = '/dashboard';
+      window.location.href = '/';
     } catch (error) {
       setError(error.message || 'Login failed. Please try again.');
     } finally {
@@ -83,8 +82,6 @@ const Login = ({ onSwitchToSignUp }) => {
     </div>
   );
 };
-
-// SignUp Component
 const SignUp = ({ onSwitchToLogin }) => {
   const [formData, setFormData] = useState({
     login: '',
@@ -136,8 +133,7 @@ const SignUp = ({ onSwitchToLogin }) => {
       
       const result = await registerUser(userData);
       console.log('Registration successful:', result);
-      // Redirect to dashboard or home page
-      window.location.href = '/dashboard';
+      window.location.href = '/';
     } catch (error) {
       setError(error.message || 'Registration failed. Please try again.');
     } finally {
