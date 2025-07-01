@@ -57,6 +57,11 @@ namespace RenderBnBv2.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Tag")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<decimal>("Rating")
                         .HasColumnType("decimal(18,2)");
 

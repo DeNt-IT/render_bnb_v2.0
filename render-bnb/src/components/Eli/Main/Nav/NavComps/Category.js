@@ -42,7 +42,7 @@ const categories = sortedImages.slice(0, 12).map((image, index) => ({
     name: defaultCategories[index]
 }));
 
-const Category = () => 
+const Category = ({ selectedCategory, onSelect }) =>
 {
     const categoryRef = useRef(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -108,8 +108,9 @@ const Category = () =>
             <div className={`arrow-left ${showLeftArrow ? 'show-arrow' : ''}`} onClick={scrollLeft}></div>
             <div className="nav-category" ref={categoryRef} onScroll={updateArrows}>
                 {categories.map((category, index) => (
-                    <div 
-                        className={`category-item ${category.name === 'Біля моря' ? 'highlighted' : ''}`} 
+                    <div
+                        onClick={() => onSelect(category.name)}
+                        className={`category-item ${category.name === selectedCategory ? 'highlighted' : ''}`}
                         key={index}
                     >
                         <img src={category.image} alt={`Category ${index + 1}`} />
