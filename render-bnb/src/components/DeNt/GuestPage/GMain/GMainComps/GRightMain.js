@@ -1,7 +1,7 @@
 import "../../../../../css/DeNt/GuestPage/GuestPage.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchCurrentUser } from "../../../../services/currentUserService";
+import { fetchCurrentUser } from "../../../../../services/currentUserService.js"
 
 function GRightMain() {
     const navigate = useNavigate();
