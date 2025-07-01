@@ -3,12 +3,23 @@ import pfp from "../../../../../assets/imgs/DeNt/GuestPage/Ellipse682.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchCurrentUser } from "../../../../../services/currentUserService";
 
 function GLeftMain() {
 
     const navigate = useNavigate();
+    const [profilePic, setProfilePic] = useState(null);
+
+    useEffect(() => {
+        fetchCurrentUser()
+            .then(u => {
+                if (u && u.profilePictureBase64) {
+                    setProfilePic(u.profilePictureBase64);
+                }
+            })
+            .catch(() => {});
+    }, []);
 
     function handleClick(event) {
 
@@ -21,7 +32,7 @@ function GLeftMain() {
             <div className="left-main-top-section-container">
                 <div className="left-main-top-section-box">
                     <div className="left-main-top-section-pfp-container">
-                        <img src={pfp} alt = 'pfp'/>
+                        <img src={profilePic || pfp} alt='pfp'/>
                     </div>
                     <div className="left-main-top-section-name-container">
                         <div className="left-main-top-section-name-text">
