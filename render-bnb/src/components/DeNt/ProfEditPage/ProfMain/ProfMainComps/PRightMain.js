@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const PRightMain = () => {
+export const PRightMain = ({ image }) => {
   const navigate = useNavigate();
 
   // 1) One state object for all fields
@@ -34,11 +34,14 @@ export const PRightMain = () => {
       Pets:        profile.pets
     };
 
+    const token = localStorage.getItem('token');
     const res = await fetch("/api/profile", {
       method:  "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",       // send cookies for Identity
-      body:    JSON.stringify(dto)
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {})
+      },
+      body:    JSON.stringify({ ...dto, ProfilePictureBase64: image })
     });
 
     if (res.ok) {
