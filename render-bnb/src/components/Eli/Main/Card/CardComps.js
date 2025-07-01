@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import '../../../../css/Eli/MainPage/MainPageCard.css';
 import Card from './CardComps/Card';
 
-const CardsList = ({ isChecked }) => {
+const CardsList = ({ isChecked, selectedCategory }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [selectedCategory]);
 
   const fetchProducts = async () => {
     try {
@@ -21,7 +21,11 @@ const CardsList = ({ isChecked }) => {
       }
       
       const data = await response.json();
-      setProducts(data);
+      if (selectedCategory) {
+        setProducts(data.filter(p => p.tag === selectedCategory));
+      } else {
+        setProducts(data);
+      }
       setError(null);
     } catch (err) {
       setError(err.message);
