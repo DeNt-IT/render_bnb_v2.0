@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import '../../../css/Eli/AdminPanel/AdminPanel.css';
 
+const defaultCategories = [
+  'Гарні краєвиди',
+  'Невеликі квартирі',
+  'Великі квартири',
+  'Кімнати',
+  'Хостели',
+  'Luxe',
+  'У центрі міста',
+  'Сільська місцевість',
+  'Від дизайнера',
+  'Біля моря',
+  'Особняки',
+  'Легендарне'
+];
+
 const AdminPanel = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +28,8 @@ const AdminPanel = () => {
     rating: 0,
     description: '',
     days: '',
-    price: ''
+    price: '',
+    tag: ''
   });
   const [previewImage, setPreviewImage] = useState(null);
   const [error, setError] = useState(null);
@@ -52,7 +68,8 @@ const AdminPanel = () => {
         rating: product.rating,
         description: product.description,
         days: product.days,
-        price: product.price
+        price: product.price,
+        tag: product.tag
       });
       setPreviewImage(product.imageBase64);
       setEditMode(true);
@@ -64,7 +81,8 @@ const AdminPanel = () => {
         rating: 0,
         description: '',
         days: '',
-        price: ''
+        price: '',
+        tag: ''
       });
       setPreviewImage(null);
       setEditMode(false);
@@ -81,7 +99,8 @@ const AdminPanel = () => {
       rating: 0,
       description: '',
       days: '',
-      price: ''
+      price: '',
+      tag: ''
     });
     setPreviewImage(null);
   };
@@ -129,7 +148,8 @@ const AdminPanel = () => {
             rating: parseFloat(currentProduct.rating),
             description: currentProduct.description,
             days: currentProduct.days,
-            price: currentProduct.price
+            price: currentProduct.price,
+            tag: currentProduct.tag
           })
         });
         
@@ -152,7 +172,8 @@ const AdminPanel = () => {
             rating: parseFloat(currentProduct.rating),
             description: currentProduct.description,
             days: currentProduct.days,
-            price: currentProduct.price
+            price: currentProduct.price,
+            tag: currentProduct.tag
           })
         });
         
@@ -223,6 +244,7 @@ const AdminPanel = () => {
             <div className="admin-th">Опис</div>
             <div className="admin-th">Дні</div>
             <div className="admin-th">Ціна</div>
+            <div className="admin-th">Тег</div>
             <div className="admin-th actions-cell">Дії</div>
           </div>
 
@@ -239,6 +261,7 @@ const AdminPanel = () => {
                 <div className="admin-td">{product.description}</div>
                 <div className="admin-td">{product.days}</div>
                 <div className="admin-td">{product.price}</div>
+                <div className="admin-td">{product.tag}</div>
                 <div className="admin-td actions-cell">
                   <button 
                     className="admin-edit-btn"
@@ -331,13 +354,28 @@ const AdminPanel = () => {
               </div>
               <div className="admin-form-group">
                 <label>Ціна</label>
-                <input 
-                  type="text" 
-                  name="price" 
-                  value={currentProduct.price} 
+                <input
+                  type="text"
+                  name="price"
+                  value={currentProduct.price}
                   onChange={handleChange}
                   required
                 />
+              </div>
+              <div className="admin-form-group">
+                <label>Тег</label>
+                <input
+                  list="tag-list"
+                  name="tag"
+                  value={currentProduct.tag}
+                  onChange={handleChange}
+                  required
+                />
+                <datalist id="tag-list">
+                  {defaultCategories.map(cat => (
+                    <option key={cat} value={cat} />
+                  ))}
+                </datalist>
               </div>
               <div className="admin-form-actions">
                 <button type="button" className="admin-cancel-btn" onClick={handleCloseModal}>Скасувати</button>

@@ -13,6 +13,7 @@ namespace Render_BnB_v2.Models.DTOs
         public string Description { get; set; }
         public string Days { get; set; }
         public string Price { get; set; }
+        public string Tag { get; set; }
     }
     
     public class CreateProductDto
@@ -39,6 +40,10 @@ namespace Render_BnB_v2.Models.DTOs
         [Required]
         [StringLength(50)]
         public string Price { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Tag { get; set; }
     }
     
     public class UpdateProductDto
@@ -64,5 +69,9 @@ namespace Render_BnB_v2.Models.DTOs
         [Required]
         [StringLength(50)]
         public string Price { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Tag { get; set; }
     }
 }

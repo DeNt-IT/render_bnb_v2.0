@@ -9,14 +9,16 @@ import Footer from './Footer/FooterComp';
 const MainPage = () => 
 {
     const [isChecked, setIsChecked] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState('');
 
     const handleToggle = () => { setIsChecked(!isChecked); };
+    const handleCategoryChange = (cat) => { setSelectedCategory(cat); };
 
     return (
         <div className="page-wrap">
             <Header />
-            <Nav onToggle={handleToggle} /> 
-            <CardsList isChecked={isChecked} />
+            <Nav onToggle={handleToggle} selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
+            <CardsList isChecked={isChecked} selectedCategory={selectedCategory} />
             <Footer />
         </div>
     );

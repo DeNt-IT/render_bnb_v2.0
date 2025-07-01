@@ -63,7 +63,8 @@ namespace Render_BnB_v2.Services
                 Rating = product.Rating,
                 Description = product.Description,
                 Days = product.Days,
-                Price = product.Price
+                Price = product.Price,
+                Tag = product.Tag
             };
         }
         
@@ -92,6 +93,7 @@ namespace Render_BnB_v2.Services
                 Description = productDto.Description,
                 Days = productDto.Days,
                 Price = productDto.Price,
+                Tag = productDto.Tag,
                 CreatedAt = DateTime.UtcNow
             };
             
@@ -118,6 +120,7 @@ namespace Render_BnB_v2.Services
             product.Description = productDto.Description;
             product.Days = productDto.Days;
             product.Price = productDto.Price;
+            product.Tag = productDto.Tag;
             
             await _context.SaveChangesAsync();
             

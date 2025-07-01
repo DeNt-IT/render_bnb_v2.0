@@ -31,6 +31,10 @@ namespace Render_BnB_v2.Models
         [Required]
         [StringLength(50)]
         public string Price { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Tag { get; set; }
         
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
