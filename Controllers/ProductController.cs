@@ -20,6 +20,7 @@ namespace Render_BnB_v2.Controllers
         }
         
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllProducts()
         {
             var products = await _productService.GetAllProductsAsync();
@@ -27,6 +28,7 @@ namespace Render_BnB_v2.Controllers
         }
         
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProductById(int id)
         {
             var product = await _productService.GetProductByIdAsync(id);
@@ -38,6 +40,7 @@ namespace Render_BnB_v2.Controllers
         }
         
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductDto productDto)
         {
             if (!ModelState.IsValid)
@@ -48,6 +51,7 @@ namespace Render_BnB_v2.Controllers
         }
         
         [HttpPut("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] UpdateProductDto productDto)
         {
             if (!ModelState.IsValid)
@@ -62,6 +66,7 @@ namespace Render_BnB_v2.Controllers
         }
         
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var result = await _productService.DeleteProductAsync(id);
