@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../../css/Eli/ByePage/ByePageHeader.css';
+import '../../../css/Eli/ByePage/ByePageHeader.css';
 
 const ByePage = () => {
   const { id } = useParams();
