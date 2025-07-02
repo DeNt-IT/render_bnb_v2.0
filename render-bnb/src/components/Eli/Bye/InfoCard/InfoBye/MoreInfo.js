@@ -1,112 +1,133 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../../../../css/Eli/ByePage/ByePageMoreInfo.css';
-
+import '../../../../../css/Eli/ByePage/ByePageComments.css';
+import '../../../../../css/DeNt/AuthPages/AuthPages.css';
 import star from '../../../../../img/Eli/Card/star.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
-import rev1 from "../../../../../img/Eli/Gallery/rev1.png";
-import rev2 from "../../../../../img/Eli/Gallery/rev2.png";
-import rev3 from "../../../../../img/Eli/Gallery/rev3.png";
-import rev4 from "../../../../../img/Eli/Gallery/rev4.png";
-import rev5 from "../../../../../img/Eli/Gallery/rev5.png";
-import rev6 from "../../../../../img/Eli/Gallery/rev6.png";
+const MoreInfo = ({ productId }) => {
+  const [comments, setComments] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [commentText, setCommentText] = useState('');
 
-const Details = () => {
-    return (
-        <div>
-            <div className='top-reting'>
-                <img src={star} alt="Star" className="star-reting" />
-                <div>5,0 . 35 відгуків</div>
-            </div>
-            
-            <div className='colum-rei'>
-                <div className='colum-rei1'>
-                    <div>Чистота</div>
-                    <div className='row-rai'></div>
-                    <div>4,9</div>
-                </div>
+  useEffect(() => {
+    if (!productId) return;
+    fetch(`/api/products/${productId}/comments`)
+      .then(res => res.json())
+      .then(setComments);
+  }, [productId]);
 
-                <div className='colum-rei2'>
-                    <div>Точність</div>
-                    <div className='row-rai'></div>
-                    <div>5,0</div>
-                </div>
-            </div>
+  const submitComment = async (e) => {
+    e.preventDefault();
+    const resp = await fetch(`/api/products/${productId}/comments`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userName, content: commentText })
+    });
+    if (resp.ok) {
+      const newComment = await resp.json();
+      setComments([newComment, ...comments]);
+      setUserName('');
+      setCommentText('');
+      setShowModal(false);
+    }
+  };
 
-            <div className='colum-rei'>
-                <div className='colum-rei1'>
-                    <div>Комунікація</div>
-                    <div className='row-rai2'></div>
-                    <div>4,8</div>
-                </div>
+  const renderComment = (c) => (
+    <div className='num-rev' key={c.id}>
+      <div className='rev-block'>
+        <FontAwesomeIcon icon={faUser} className='rev' />
+        <div className='name-rev'>{c.userName}</div>
+      </div>
+      <div>{c.content}</div>
+    </div>
+  );
 
-                <div className='colum-rei2'>
-                    <div>Розташування</div>
-                    <div className='row-rai3'></div>
-                    <div>4,9</div>
-                </div>
-            </div>
+  const half = Math.ceil(comments.length / 2);
+  const left = comments.slice(0, half);
+  const right = comments.slice(half);
 
+  return (
+    <div>
+      <div className='top-reting'>
+        <img src={star} alt='Star' className='star-reting' />
+        <div>5,0 . {comments.length} відгуків</div>
+      </div>
 
-
-
-            <div className="rev-cont">
-                <div className='col1-rev'>
-                    <div className='num-rev'>
-                        <div className='rev-block'>
-                            <img src={rev1} alt="rev1" className="rev" />
-                            <div className='name-rev'>Oleksandr</div>
-                        </div>
-                        <div>Однозначно рекомендую ,все було на високому рівні )</div>
-                    </div>
-                    
-
-                    <div className='num-rev'>
-                        <div className='rev-block'>
-                            <img src={rev2} alt="rev1" className="rev" />
-                            <div className='name-rev'>Дарья</div>
-                        </div>
-                        <div>Всі фото відповідають дійсності. Вид з вікна просто неймовірний! Розташування дуже зручне, 2 хвилини пішки до моря і до траси здоров‘я.</div>
-                    </div>
-                    
-                    <div className='num-rev'>
-                        <div className='rev-block'>
-                            <img src={rev3} alt="rev1" className="rev" />
-                            <div className='name-rev'>Сергей</div>
-                        </div>
-                        <div>Все було чудово! Дарʼя завжди готова допомогти! Вид з вікна окремий вид задоволення.</div>
-                    </div>
-
-                </div>
-                
-                <div className='col2-rev'>
-
-                    <div className='num-rev'>
-                        <div className='rev-block'>
-                            <img src={rev4} alt="rev1" className="rev" />
-                            <div className='name-rev'>Дарина</div>
-                        </div>
-                        <div>Дуже дякую за гарні апартаменти! Дуже близько до пляжу, а сама квартира просто вау!</div>
-                    </div>
-                    <div className='num-rev'>
-                        <div className='rev-block'>
-                            <img src={rev5} alt="rev1" className="rev" />
-                            <div className='name-rev'>Даниил</div>
-                        </div>
-                        <div>Все пройшло чудово! Місцерозташування квартири, саме житло та господар - 5 зірок! Рекомендую.</div>
-                    </div>
-
-                    <div className='num-rev'>
-                        <div className='rev-block'>
-                            <img src={rev6} alt="rev1" className="rev" />
-                            <div className='name-rev'>Sveta</div>
-                        </div>
-                        <div>Дуже гарна квартира і дуже гарна господиня. Прекрасний вид на найкраще в світі море !!!! Це відпочинок для душі !!! Даша, дуже дуже вам дякую за все.</div>
-                    </div>
-                    
-                </div>
-            </div>
+      <div className='colum-rei'>
+        <div className='colum-rei1'>
+          <div>Чистота</div>
+          <div className='row-rai'></div>
+          <div>4,9</div>
         </div>
-    );
+        <div className='colum-rei2'>
+          <div>Точність</div>
+          <div className='row-rai'></div>
+          <div>5,0</div>
+        </div>
+      </div>
+
+      <div className='colum-rei'>
+        <div className='colum-rei1'>
+          <div>Комунікація</div>
+          <div className='row-rai2'></div>
+          <div>4,8</div>
+        </div>
+        <div className='colum-rei2'>
+          <div>Розташування</div>
+          <div className='row-rai3'></div>
+          <div>4,9</div>
+        </div>
+      </div>
+
+      <button className='admin-add-btn' onClick={() => setShowModal(true)}>Add comment</button>
+
+      <div className='rev-cont'>
+        <div className='col1-rev'>
+          {left.map(renderComment)}
+        </div>
+        <div className='col2-rev'>
+          {right.map(renderComment)}
+        </div>
+      </div>
+
+      {showModal && (
+        <div className='comment-modal-overlay'>
+          <div className='comment-modal'>
+            <div className='comment-modal-header'>
+              <h2>Add Comment</h2>
+              <button className='comment-close-modal' onClick={() => setShowModal(false)}>×</button>
+            </div>
+            <form onSubmit={submitComment} className='comment-form'>
+              <div className='auth-form-group'>
+                <input
+                  type='text'
+                  placeholder='Your name'
+                  value={userName}
+                  onChange={e => setUserName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className='auth-form-group'>
+                <textarea
+                  placeholder='Comment'
+                  value={commentText}
+                  onChange={e => setCommentText(e.target.value)}
+                  required
+                />
+              </div>
+              <div className='admin-form-actions'>
+                <button type='button' className='admin-cancel-btn' onClick={() => setShowModal(false)}>Cancel</button>
+                <button type='submit' className='admin-submit-btn'>Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 };
 
-export default Details;
+export default MoreInfo;
