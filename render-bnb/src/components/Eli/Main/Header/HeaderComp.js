@@ -8,7 +8,7 @@ import User from './HeaderComps/User';
 import Search from './HeaderComps/Search';
 import Map from './HeaderComps/Map';
 
-const Header = () => 
+const Header = ({ onSearch }) =>
 {
   	return (
     		<div className="header-wrap">
@@ -31,7 +31,7 @@ const Header = () =>
 
                 <div className ="botom-header">
                     <div className = 'search-container'>
-                        <Search></Search>
+                        <Search onSearch={onSearch}></Search>
                     </div>
                     <div className = 'map-container'>
                         <Map></Map>

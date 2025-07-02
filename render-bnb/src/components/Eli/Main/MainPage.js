@@ -10,15 +10,17 @@ const MainPage = () =>
 {
     const [isChecked, setIsChecked] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedDestination, setSelectedDestination] = useState('');
 
     const handleToggle = () => { setIsChecked(!isChecked); };
     const handleCategoryChange = (cat) => { setSelectedCategory(cat); };
+    const handleSearch = (destination) => { setSelectedDestination(destination); };
 
     return (
         <div className="page-wrap">
-            <Header />
+            <Header onSearch={handleSearch} />
             <Nav onToggle={handleToggle} selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
-            <CardsList isChecked={isChecked} selectedCategory={selectedCategory} />
+            <CardsList isChecked={isChecked} selectedCategory={selectedCategory} selectedDestination={selectedDestination} />
             <Footer />
         </div>
     );

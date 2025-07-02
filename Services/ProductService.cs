@@ -17,6 +17,8 @@ namespace Render_BnB_v2.Services
         Task<ProductDto> CreateProductAsync(CreateProductDto productDto);
         Task<ProductDto> UpdateProductAsync(int id, UpdateProductDto productDto);
         Task<bool> DeleteProductAsync(int id);
+        Task<List<ProductDto>> GetProductsByDestinationAsync(string destination);
+        Task<List<string>> GetDestinationsAsync();
     }
     
     public class ProductService : IProductService
@@ -135,8 +137,31 @@ namespace Render_BnB_v2.Services
                 
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
-            
+
             return true;
+        }
+
+        public async Task<List<ProductDto>> GetProductsByDestinationAsync(string destination)
+        {
+            if (string.IsNullOrWhiteSpace(destination))
+            {
+                return await GetAllProductsAsync();
+            }
+
+            var lower = destination.ToLower();
+            var products = await _context.Products
+                .Where(p => p.Location.ToLower().Contains(lower))
+                .ToListAsync();
+
+            return products.Select(MapToDto).ToList();
+        }
+
+        public async Task<List<string>> GetDestinationsAsync()
+        {
+            return await _context.Products
+                .Select(p => p.Location)
+                .Distinct()
+                .ToListAsync();
         }
     }
 }

@@ -278,10 +278,19 @@
     margin-bottom: 0.2rem; 
     line-height: 1.2; 
 }
-.search-placeholder 
+.search-placeholder
 {
     color: #8a8278;
-    line-height: 1.2; 
+    line-height: 1.2;
+}
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #211e1a;
+    font-size: 0.55rem;
+    font-family: 'Inknut Antiqua';
+    width: 100%;
 }
 .separator 
 {
