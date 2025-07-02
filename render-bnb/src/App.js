@@ -22,7 +22,7 @@ function App() {
         <Route path = "/" element={<MainPage />} />
         <Route path = "/admin" element={<RequireAuth><AdminPanel /></RequireAuth>} />
         <Route path = "/authpage" element={<AuthPages />} />
-        <Route path = "/byepage" element={<ByePage />} />
+        <Route path = "/byepage/:id" element={<ByePage />} />
         <Route path='/guestpage' element={<RequireAuth><GuestPage /></RequireAuth>} />
         <Route path='/veripage1' element={<RequireAuth><VeriPage1 /></RequireAuth>} />
         <Route path='/veripage2' element={<RequireAuth><VeriPage2 /></RequireAuth>} />

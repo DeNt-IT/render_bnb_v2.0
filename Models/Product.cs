@@ -11,6 +11,10 @@ namespace Render_BnB_v2.Models
         
         [Required]
         public byte[] Image { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
         
         [Required]
         [StringLength(100)]
@@ -35,7 +39,11 @@ namespace Render_BnB_v2.Models
         [Required]
         [StringLength(50)]
         public string Tag { get; set; }
-        
+
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public ICollection<Photo> Photos { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
     }
 }

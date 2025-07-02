@@ -8,6 +8,8 @@ namespace Render_BnB_v2.Models.DTOs
     {
         public int Id { get; set; }
         public string ImageBase64 { get; set; } // For frontend display
+        public List<string> PhotoBase64 { get; set; }
+        public string Name { get; set; }
         public string Location { get; set; }
         public decimal Rating { get; set; }
         public string Description { get; set; }
@@ -20,6 +22,12 @@ namespace Render_BnB_v2.Models.DTOs
     {
         [Required]
         public string ImageBase64 { get; set; } // Base64 encoded image
+
+        public List<string> PhotoBase64 { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
         
         [Required]
         [StringLength(100)]
@@ -49,6 +57,12 @@ namespace Render_BnB_v2.Models.DTOs
     public class UpdateProductDto
     {
         public string ImageBase64 { get; set; } // Base64 encoded image, null if not changing
+
+        public List<string> PhotoBase64 { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; }
         
         [Required]
         [StringLength(100)]

@@ -19,6 +19,8 @@ namespace Render_BnB_v2.Services
         Task<bool> DeleteProductAsync(int id);
         Task<List<ProductDto>> GetProductsByDestinationAsync(string destination);
         Task<List<string>> GetDestinationsAsync();
+        Task<List<Comment>> GetCommentsAsync(int productId);
+        Task<Comment> AddCommentAsync(int productId, string userName, string content);
     }
     
     public class ProductService : IProductService
@@ -61,6 +63,8 @@ namespace Render_BnB_v2.Services
             {
                 Id = product.Id,
                 ImageBase64 = product.Image != null ? $"data:image/jpeg;base64,{ByteArrayToBase64(product.Image)}" : null,
+                Name = product.Name,
+                PhotoBase64 = product.Photos?.Select(ph => $"data:image/jpeg;base64,{ByteArrayToBase64(ph.Image)}").ToList(),
                 Location = product.Location,
                 Rating = product.Rating,
                 Description = product.Description,
@@ -72,16 +76,21 @@ namespace Render_BnB_v2.Services
         
         public async Task<List<ProductDto>> GetAllProductsAsync()
         {
-            var products = await _context.Products.ToListAsync();
+            var products = await _context.Products
+                .Include(p => p.Photos)
+                .ToListAsync();
             return products.Select(MapToDto).ToList();
         }
         
         public async Task<ProductDto> GetProductByIdAsync(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products
+                .Include(p => p.Photos)
+                .Include(p => p.Comments)
+                .FirstOrDefaultAsync(p => p.Id == id);
             if (product == null)
                 return null;
-                
+
             return MapToDto(product);
         }
         
@@ -90,6 +99,7 @@ namespace Render_BnB_v2.Services
             var product = new Product
             {
                 Image = Base64ToByteArray(productDto.ImageBase64),
+                Name = productDto.Name,
                 Location = productDto.Location,
                 Rating = productDto.Rating,
                 Description = productDto.Description,
@@ -98,16 +108,36 @@ namespace Render_BnB_v2.Services
                 Tag = productDto.Tag,
                 CreatedAt = DateTime.UtcNow
             };
-            
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
-            
-            return MapToDto(product);
+
+            if (productDto.PhotoBase64 != null)
+            {
+                foreach (var base64 in productDto.PhotoBase64)
+                {
+                    var photo = new Photo
+                    {
+                        ProductId = product.Id,
+                        Image = Base64ToByteArray(base64)
+                    };
+                    _context.Photos.Add(photo);
+                }
+                await _context.SaveChangesAsync();
+            }
+
+            // Reload with photos
+            var created = await _context.Products
+                .Include(p => p.Photos)
+                .FirstOrDefaultAsync(p => p.Id == product.Id);
+            return MapToDto(created);
         }
         
         public async Task<ProductDto> UpdateProductAsync(int id, UpdateProductDto productDto)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products
+                .Include(p => p.Photos)
+                .FirstOrDefaultAsync(p => p.Id == id);
             if (product == null)
                 return null;
                 
@@ -116,7 +146,22 @@ namespace Render_BnB_v2.Services
             {
                 product.Image = Base64ToByteArray(productDto.ImageBase64);
             }
-            
+
+            if (productDto.PhotoBase64 != null)
+            {
+                // Remove existing photos and add new ones
+                _context.Photos.RemoveRange(product.Photos);
+                foreach (var base64 in productDto.PhotoBase64)
+                {
+                    product.Photos.Add(new Photo
+                    {
+                        ProductId = product.Id,
+                        Image = Base64ToByteArray(base64)
+                    });
+                }
+            }
+
+            product.Name = productDto.Name;
             product.Location = productDto.Location;
             product.Rating = productDto.Rating;
             product.Description = productDto.Description;
@@ -150,6 +195,7 @@ namespace Render_BnB_v2.Services
 
             var lower = destination.ToLower();
             var products = await _context.Products
+                .Include(p => p.Photos)
                 .Where(p => p.Location.ToLower().Contains(lower))
                 .ToListAsync();
 
@@ -162,6 +208,30 @@ namespace Render_BnB_v2.Services
                 .Select(p => p.Location)
                 .Distinct()
                 .ToListAsync();
+        }
+
+        public async Task<List<Comment>> GetCommentsAsync(int productId)
+        {
+            return await _context.Comments
+                .Where(c => c.ProductId == productId)
+                .OrderByDescending(c => c.CreatedAt)
+                .ToListAsync();
+        }
+
+        public async Task<Comment> AddCommentAsync(int productId, string userName, string content)
+        {
+            var comment = new Comment
+            {
+                ProductId = productId,
+                UserName = userName,
+                Content = content,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.Comments.Add(comment);
+            await _context.SaveChangesAsync();
+
+            return comment;
         }
     }
 }

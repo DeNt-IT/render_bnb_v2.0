@@ -92,5 +92,24 @@ namespace Render_BnB_v2.Controllers
                 
             return NoContent();
         }
+
+        [AllowAnonymous]
+        [HttpGet("{id}/comments")]
+        public async Task<IActionResult> GetComments(int id)
+        {
+            var comments = await _productService.GetCommentsAsync(id);
+            return Ok(comments);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("{id}/comments")]
+        public async Task<IActionResult> AddComment(int id, [FromBody] CommentDto commentDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var comment = await _productService.AddCommentAsync(id, commentDto.UserName, commentDto.Content);
+            return Ok(comment);
+        }
     }
 }
