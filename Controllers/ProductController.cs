@@ -26,6 +26,20 @@ namespace Render_BnB_v2.Controllers
             var products = await _productService.GetAllProductsAsync();
             return Ok(products);
         }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> GetProductsByDestination([FromQuery] string destination)
+        {
+            var products = await _productService.GetProductsByDestinationAsync(destination);
+            return Ok(products);
+        }
+
+        [HttpGet("destinations")]
+        public async Task<IActionResult> GetDestinations()
+        {
+            var destinations = await _productService.GetDestinationsAsync();
+            return Ok(destinations);
+        }
         
         [HttpGet("{id}")]
         [AllowAnonymous]
