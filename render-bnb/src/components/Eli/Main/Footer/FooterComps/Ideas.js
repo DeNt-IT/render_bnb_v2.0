@@ -1,4 +1,5 @@
 import '../../../../../css/Eli/MainPage/MainPageFooter.css';
+import { useState } from 'react';
 
 const categories = 
 [
@@ -46,30 +47,46 @@ const ideas =
     ]
 ];
 
-const Ideas = () => 
+const Ideas = () =>
 {
+    const [selectedCat, setSelectedCat] = useState(0);
+
+    const renderIdeas = () => {
+        if (selectedCat === 0) {
+            return ideas.map((column, colIndex) => (
+                <div key={colIndex} className="column">
+                    {column.map((idea, ideaIndex) => (
+                        <div key={ideaIndex}>
+                            <div>{idea.name}</div>
+                            <div className="addideas">{idea.type}</div>
+                        </div>
+                    ))}
+                </div>
+            ));
+        }
+
+        return (
+            <div className="placeholder-message">To be announced</div>
+        );
+    };
+
     return (
         <div className="ideas-container">
             <h2>Ідеї для майбутніх поїздок</h2>
             <div className="ideas-categories">
                 {categories.map((category, index) => (
-                    <div key={index} className={`category ${index === 0 ? 'firstitem' : ''}`}>
+                    <div
+                        key={index}
+                        onClick={() => setSelectedCat(index)}
+                        className={`category ${index === selectedCat ? 'firstitem' : ''}`}
+                    >
                         {category}
                     </div>
                 ))}
             </div>
-            
+
             <div className="ideas-list">
-                {ideas.map((column, colIndex) => (
-                    <div key={colIndex} className="column">
-                        {column.map((idea, ideaIndex) => (
-                            <div key={ideaIndex}>
-                                <div>{idea.name}</div>
-                                <div className="addideas">{idea.type}</div>
-                            </div>
-                        ))}
-                    </div>
-                ))}
+                {renderIdeas()}
             </div>
         </div>
     );
