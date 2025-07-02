@@ -152,6 +152,9 @@ namespace RenderBnBv2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Interest")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

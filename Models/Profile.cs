@@ -14,6 +14,7 @@ namespace Render_BnB_v2.Models
         public User User { get; set; }
 
         public byte[] ProfilePicture { get; set; }
+        public string DisplayName { get; set; }
         public string University { get; set; }
         public string LivingPlace { get; set; }
         public string BirthDecade { get; set; }
