@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+<<<<<<< HEAD
 import '../../../css/Eli/ByePage/ByePageHeader.css';
+=======
+import '../../css/Eli/ByePage/ByePageHeader.css';
+import HeaderBye from './Header/HeaderBye';
+import GalleryBye from './Gallery/GalleryBye';
+import InfoBye from './InfoCard/InfoBye';
+import CommentsSection from './CommentsSection';
+>>>>>>> 2010ea0c25f24105133d1bedfe64ca085749334c
 
 const ByePage = () => {
   const { id } = useParams();
@@ -36,29 +44,20 @@ const ByePage = () => {
 
   return (
     <div className="ByePage-wrap">
-      <h2>{product.name}</h2>
-      <div>Location: {product.location}</div>
-      <div>Rating: {product.rating}</div>
-      <div>Price: {product.price}</div>
-      <div className="gallery">
-        <img src={product.imageBase64} alt={product.name} style={{ maxWidth:'300px' }} />
-        {product.photoBase64 && product.photoBase64.map((p,i) => (
-          <img key={i} src={p} alt={product.name+i} style={{ maxWidth:'300px' }} />
-        ))}
-      </div>
-      <h3>Comments</h3>
-      <form onSubmit={submitComment}>
-        <input value={userName} onChange={e=>setUserName(e.target.value)} placeholder="Your name" required />
-        <textarea value={commentText} onChange={e=>setCommentText(e.target.value)} required />
-        <button type="submit">Add Comment</button>
-      </form>
-      {comments.map(c => (
-        <div key={c.id} className="comment">
-          <strong>{c.userName}</strong>: {c.content}
-        </div>
-      ))}
+      <HeaderBye />
+      <GalleryBye product={product} />
+      <InfoBye product={product} />
+      <CommentsSection
+        comments={comments}
+        userName={userName}
+        commentText={commentText}
+        setUserName={setUserName}
+        setCommentText={setCommentText}
+        onSubmit={submitComment}
+      />
     </div>
   );
 };
 
 export default ByePage;
+

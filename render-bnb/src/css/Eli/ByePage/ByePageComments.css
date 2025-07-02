@@ -1,0 +1,14 @@
+.comments-section {
+  margin: 20px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.comment {
+  margin: 5px 0;
+}
