@@ -10,7 +10,7 @@ const Info = ({ product }) => {
         <Details price={product.price} rating={product.rating} />
       </div>
       <div className="add-info-for-bye">
-        <MoreInfo />
+        <MoreInfo productId={product.id} />
       </div>
     </div>
   );
