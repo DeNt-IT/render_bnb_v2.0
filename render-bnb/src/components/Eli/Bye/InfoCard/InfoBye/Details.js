@@ -3,13 +3,14 @@ import InfoContainer from './InfoContainer';
 import PriceDetails from './PriceDetails';
 import '../../../../../css/Eli/ByePage/ByePageInfo.css';
 
-const Details = () => {
-    return (
-        <div className="info-wrap">
-            <InfoContainer />
-            <PriceDetails />
-        </div>
-    );
+const Details = ({ price, rating }) => {
+  return (
+    <div className="info-wrap">
+      <InfoContainer />
+      <PriceDetails price={price} rating={rating} />
+    </div>
+  );
 };
 
 export default Details;
+
