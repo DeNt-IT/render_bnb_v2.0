@@ -21,4 +21,3 @@ const Gallery = ({ product }) => {
 };
 
 export default Gallery;
-
