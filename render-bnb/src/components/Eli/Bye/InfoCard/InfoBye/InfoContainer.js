@@ -20,8 +20,7 @@ const InfoContainer = () => {
     return (
         <div className="info-container">
             <div className="title-details">
-                Помешкання для оренди, господар - Ілона
-                <img src={ilona} alt="ilona" className="ilona-img" />
+                Помешкання для оренди
             </div>
             <div className="add-details">4 гостя, 1 спальня, 2 ліжка, 1 ванна кімната</div>
             <div className="conditions">

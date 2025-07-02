@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/Eli/ByePage/ByePageComments.css';
+import '../../../css/Eli/ByePage/ByePageComments.css';
 
 const CommentsSection = ({ comments, userName, commentText, setUserName, setCommentText, onSubmit }) => (
   <div className="comments-section">

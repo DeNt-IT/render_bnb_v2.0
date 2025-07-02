@@ -5,6 +5,7 @@ import HeaderBye from './Header/HeaderBye';
 import GalleryBye from './Gallery/GalleryBye';
 import InfoBye from './InfoCard/InfoBye';
 import CommentsSection from './CommentsSection';
+import Footer from '../Main/Footer/FooterComp';
 
 const ByePage = () => {
   const { id } = useParams();
@@ -43,14 +44,15 @@ const ByePage = () => {
       <HeaderBye />
       <GalleryBye product={product} />
       <InfoBye product={product} />
-      <CommentsSection
+      {/* <CommentsSection
         comments={comments}
         userName={userName}
         commentText={commentText}
         setUserName={setUserName}
         setCommentText={setCommentText}
         onSubmit={submitComment}
-      />
+      /> */}
+      <Footer />
     </div>
   );
 };
