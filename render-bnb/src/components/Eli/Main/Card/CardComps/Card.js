@@ -7,11 +7,7 @@ const Card = ({ id, image, rating, dateRange, price, days, isChecked, location, 
   const navigate = useNavigate();
 
   function handleclick(event) {
-<<<<<<< HEAD
-      navigate("/byepage");
-=======
       navigate(`/byepage/${id}`);
->>>>>>> ae7b1b8e36c6d0b0978ae49620b1bb2b1581fcfd
   }
 
   return (
