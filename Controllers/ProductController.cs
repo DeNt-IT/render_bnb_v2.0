@@ -28,6 +28,7 @@ namespace Render_BnB_v2.Controllers
         }
 
         [HttpGet("search")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetProductsByDestination([FromQuery] string destination)
         {
             var products = await _productService.GetProductsByDestinationAsync(destination);
@@ -35,6 +36,7 @@ namespace Render_BnB_v2.Controllers
         }
 
         [HttpGet("destinations")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetDestinations()
         {
             var destinations = await _productService.GetDestinationsAsync();
