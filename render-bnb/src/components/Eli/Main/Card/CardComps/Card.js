@@ -7,9 +7,7 @@ const Card = ({ image, rating, dateRange, price, days, isChecked, index, locatio
   const navigate = useNavigate();
   
   function handleclick(event) {
-    if (index === 0) {
       navigate("/byepage");
-    }
   }
 
   return (
