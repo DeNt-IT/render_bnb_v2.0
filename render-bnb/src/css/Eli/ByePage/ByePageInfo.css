@@ -144,6 +144,12 @@
     font-size: 0.60rem;
 }
 
+.table-details input {
+    border: none;
+    background: transparent;
+    font-size: 0.65rem;
+}
+
 
 .second-row
 {

@@ -48,6 +48,7 @@ namespace Render_BnB_v2.Services
             {
                 Id = profile.Id,
                 ProfilePictureBase64 = profile.ProfilePicture != null ? $"data:image/jpeg;base64,{ByteArrayToBase64(profile.ProfilePicture)}" : null,
+                DisplayName = profile.DisplayName,
                 University = profile.University,
                 LivingPlace = profile.LivingPlace,
                 BirthDecade = profile.BirthDecade,
@@ -85,6 +86,7 @@ namespace Render_BnB_v2.Services
                 profile.ProfilePicture = Base64ToByteArray(dto.ProfilePictureBase64);
             }
 
+            profile.DisplayName = dto.DisplayName;
             profile.University = dto.University;
             profile.LivingPlace = dto.LivingPlace;
             profile.BirthDecade = dto.BirthDecade;

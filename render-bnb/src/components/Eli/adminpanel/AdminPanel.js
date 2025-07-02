@@ -144,7 +144,14 @@ const AdminPanel = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
+    const daysNum = parseInt(currentProduct.days, 10);
+    const priceNum = parseFloat(currentProduct.price);
+    if (isNaN(daysNum) || isNaN(priceNum)) {
+      setError('Days and Price must be numbers');
+      return;
+    }
+
     try {
       if (editMode) {
         // Update existing product
@@ -312,11 +319,18 @@ const AdminPanel = () => {
                 <div className="admin-image-upload">
                   {previewImage && (
                     <div className="admin-image-preview">
-                      <img 
-                        src={previewImage} 
-                        alt="Preview" 
-                        className="admin-preview-image" 
+                      <img
+                        src={previewImage}
+                        alt="Preview"
+                        className="admin-preview-image"
                       />
+                    </div>
+                  )}
+                  {additionalImages.length > 0 && (
+                    <div className="admin-additional-preview">
+                      {additionalImages.map((img, idx) => (
+                        <img key={idx} src={img} alt={`Add ${idx}`} className="admin-preview-image" />
+                      ))}
                     </div>
                   )}
                   <input
@@ -372,10 +386,11 @@ const AdminPanel = () => {
               </div>
               <div className="admin-form-group">
                 <label>Дні</label>
-                <input 
-                  type="text" 
-                  name="days" 
-                  value={currentProduct.days} 
+                <input
+                  type="number"
+                  name="days"
+                  min="1"
+                  value={currentProduct.days}
                   onChange={handleChange}
                   required
                 />
@@ -383,8 +398,10 @@ const AdminPanel = () => {
               <div className="admin-form-group">
                 <label>Ціна</label>
                 <input
-                  type="text"
+                  type="number"
                   name="price"
+                  min="0"
+                  step="0.01"
                   value={currentProduct.price}
                   onChange={handleChange}
                   required

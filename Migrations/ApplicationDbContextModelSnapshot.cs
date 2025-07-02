@@ -90,6 +90,9 @@ namespace RenderBnBv2.Migrations
                     b.Property<string>("FunFact")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Interest")
                         .HasColumnType("nvarchar(max)");
 

@@ -4,6 +4,7 @@ namespace Render_BnB_v2.Models.DTOs
     {
         public int Id { get; set; }
         public string ProfilePictureBase64 { get; set; }
+        public string DisplayName { get; set; }
         public string University { get; set; }
         public string LivingPlace { get; set; }
         public string BirthDecade { get; set; }
@@ -21,6 +22,7 @@ namespace Render_BnB_v2.Models.DTOs
     public class UpdateProfileDto
     {
         public string ProfilePictureBase64 { get; set; }
+        public string DisplayName { get; set; }
         public string University { get; set; }
         public string LivingPlace { get; set; }
         public string BirthDecade { get; set; }
