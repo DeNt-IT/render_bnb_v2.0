@@ -24,6 +24,7 @@ const AdminPanel = () => {
   const [currentProduct, setCurrentProduct] = useState({
     id: null,
     imageBase64: '',
+    name: '',
     location: '',
     rating: 0,
     description: '',
@@ -32,6 +33,7 @@ const AdminPanel = () => {
     tag: ''
   });
   const [previewImage, setPreviewImage] = useState(null);
+  const [additionalImages, setAdditionalImages] = useState([]);
   const [error, setError] = useState(null);
 
   // Fetch products on component mount
@@ -64,6 +66,7 @@ const AdminPanel = () => {
       setCurrentProduct({
         id: product.id,
         imageBase64: product.imageBase64,
+        name: product.name,
         location: product.location,
         rating: product.rating,
         description: product.description,
@@ -72,11 +75,13 @@ const AdminPanel = () => {
         tag: product.tag
       });
       setPreviewImage(product.imageBase64);
+      setAdditionalImages(product.photoBase64 || []);
       setEditMode(true);
     } else {
       setCurrentProduct({
         id: null,
         imageBase64: '',
+        name: '',
         location: '',
         rating: 0,
         description: '',
@@ -85,6 +90,7 @@ const AdminPanel = () => {
         tag: ''
       });
       setPreviewImage(null);
+      setAdditionalImages([]);
       setEditMode(false);
     }
     setShowModal(true);
@@ -95,6 +101,7 @@ const AdminPanel = () => {
     setCurrentProduct({
       id: null,
       imageBase64: '',
+      name: '',
       location: '',
       rating: 0,
       description: '',
@@ -103,6 +110,7 @@ const AdminPanel = () => {
       tag: ''
     });
     setPreviewImage(null);
+    setAdditionalImages([]);
   };
 
   const handleChange = (e) => {
@@ -114,20 +122,23 @@ const AdminPanel = () => {
   };
 
   const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      
-      reader.onloadend = () => {
-        const base64String = reader.result;
-        setPreviewImage(base64String);
-        setCurrentProduct({
-          ...currentProduct,
-          imageBase64: base64String
-        });
-      };
-      
-      reader.readAsDataURL(file);
+    if (e.target.files && e.target.files.length > 0) {
+      const files = Array.from(e.target.files);
+      const readers = [];
+      files.forEach((file, index) => {
+        const reader = new FileReader();
+        readers.push(reader);
+        reader.onloadend = () => {
+          const base64String = reader.result;
+          if (index === 0) {
+            setPreviewImage(base64String);
+            setCurrentProduct({ ...currentProduct, imageBase64: base64String });
+          } else {
+            setAdditionalImages(prev => [...prev, base64String]);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
     }
   };
 
@@ -144,6 +155,8 @@ const AdminPanel = () => {
           },
           body: JSON.stringify({
             imageBase64: currentProduct.imageBase64,
+            photoBase64: additionalImages,
+            name: currentProduct.name,
             location: currentProduct.location,
             rating: parseFloat(currentProduct.rating),
             description: currentProduct.description,
@@ -168,6 +181,8 @@ const AdminPanel = () => {
           },
           body: JSON.stringify({
             imageBase64: currentProduct.imageBase64,
+            photoBase64: additionalImages,
+            name: currentProduct.name,
             location: currentProduct.location,
             rating: parseFloat(currentProduct.rating),
             description: currentProduct.description,
@@ -236,10 +251,11 @@ const AdminPanel = () => {
       {isLoading ? (
         <div className="admin-loading">Loading products...</div>
       ) : (
-        <div className="admin-products-table">
-          <div className="admin-table-header">
-            <div className="admin-th image-cell">Зображення</div>
-            <div className="admin-th">Місцезнаходження</div>
+          <div className="admin-products-table">
+            <div className="admin-table-header">
+              <div className="admin-th image-cell">Зображення</div>
+              <div className="admin-th">Назва</div>
+              <div className="admin-th">Місцезнаходження</div>
             <div className="admin-th">Рейтинг</div>
             <div className="admin-th">Опис</div>
             <div className="admin-th">Дні</div>
@@ -253,10 +269,11 @@ const AdminPanel = () => {
           ) : (
             products.map(product => (
               <div className="admin-table-row" key={product.id}>
-                <div className="admin-td image-cell">
-                  <img src={product.imageBase64 || '/api/placeholder/400/320'} alt={product.location} className="admin-product-image" />
-                </div>
-                <div className="admin-td">{product.location}</div>
+              <div className="admin-td image-cell">
+                <img src={product.imageBase64 || '/api/placeholder/400/320'} alt={product.location} className="admin-product-image" />
+              </div>
+              <div className="admin-td">{product.name}</div>
+              <div className="admin-td">{product.location}</div>
                 <div className="admin-td">★ {product.rating}</div>
                 <div className="admin-td">{product.description}</div>
                 <div className="admin-td">{product.days}</div>
@@ -302,12 +319,23 @@ const AdminPanel = () => {
                       />
                     </div>
                   )}
-                  <input 
-                    type="file" 
-                    onChange={handleImageChange} 
+                  <input
+                    type="file"
+                    multiple
+                    onChange={handleImageChange}
                     className="admin-file-input"
                   />
                 </div>
+              </div>
+              <div className="admin-form-group">
+                <label>Назва</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={currentProduct.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div className="admin-form-group">
                 <label>Місцезнаходження</label>

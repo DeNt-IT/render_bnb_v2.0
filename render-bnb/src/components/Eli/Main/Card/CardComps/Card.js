@@ -3,21 +3,20 @@ import '../../../../../css/Eli/MainPage/MainPageCard.css';
 import star from '../../../../../img/Eli/Card/star.png';
 import heart from '../../../../../img/Eli/Card/heart.png';
 
-const Card = ({ image, rating, dateRange, price, days, isChecked, index, location, description }) => {
+const Card = ({ id, image, rating, dateRange, price, days, isChecked, location, description, name }) => {
   const navigate = useNavigate();
-  
+
   function handleclick(event) {
-    if (index === 0) {
-      navigate("/byepage");
-    }
+      navigate(`/byepage/${id}`);
   }
 
   return (
     <div className="card" onClick={handleclick}>
-      <img src={image} alt="Card" className="card-image" />  
+      <img src={image} alt="Card" className="card-image" />
       <img src={heart} alt="Heart" className="heart-icon" />
-      
+
       <div className="card-info">
+        <div className="name">{name}</div>
         <div className="location">
           <span>{location}</span>
           <div className="star-ratingMain">

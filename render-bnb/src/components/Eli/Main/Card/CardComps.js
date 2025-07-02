@@ -56,7 +56,7 @@ const CardsList = ({ isChecked, selectedCategory, selectedDestination }) => {
 
   return (
     <div className="card-container">
-      {products.map((product, index) => {
+      {products.map((product) => {
         const days = calculateDays(product.days);
         const priceValue = parseFloat(product.price.replace(/[^0-9.]/g, ''));
         let totalPrice = priceValue;
@@ -68,15 +68,16 @@ const CardsList = ({ isChecked, selectedCategory, selectedDestination }) => {
         return (
           <Card
             key={product.id}
+            id={product.id}
             image={product.imageBase64 || '/api/placeholder/400/320'}
             rating={product.rating}
             dateRange={product.days}
             price={totalPrice}
             days={days}
             isChecked={isChecked}
-            index={index}
             location={product.location}
             description={product.description}
+            name={product.name}
           />
         );
       })}
