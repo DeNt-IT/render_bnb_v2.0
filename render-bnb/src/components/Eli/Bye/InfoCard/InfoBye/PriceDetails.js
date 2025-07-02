@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import star from '../../../../../img/Eli/Card/star.png';
 import '../../../../../css/Eli/ByePage/ByePageInfo.css';
 
-const PriceDetails = () => {
+const PriceDetails = ({ price, rating }) => {
     const navigate = useNavigate();
 
     const handleClickPay = () => {
@@ -14,10 +14,10 @@ const PriceDetails = () => {
         <div className="absol-container">
             <div className="abcol-block">
                 <div className="price-details">
-                    <div className="price-for-absol">$70 ніч</div>
+                    <div className="price-for-absol">{price} ніч</div>
                     <div className="reting-fot-absol">
                         <img src={star} alt="Star" className="star-reting" />
-                        4,88 . 35 відкуів
+                        {rating}
                     </div>
                 </div>
                 <div className="table-details">
@@ -56,3 +56,4 @@ const PriceDetails = () => {
 };
 
 export default PriceDetails;
+
