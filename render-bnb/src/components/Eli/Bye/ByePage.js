@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD
 import '../../../css/Eli/ByePage/ByePageHeader.css';
-=======
-import '../../css/Eli/ByePage/ByePageHeader.css';
 import HeaderBye from './Header/HeaderBye';
 import GalleryBye from './Gallery/GalleryBye';
 import InfoBye from './InfoCard/InfoBye';
 import CommentsSection from './CommentsSection';
->>>>>>> 2010ea0c25f24105133d1bedfe64ca085749334c
 
 const ByePage = () => {
   const { id } = useParams();
