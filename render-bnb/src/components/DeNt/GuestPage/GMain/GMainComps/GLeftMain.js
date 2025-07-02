@@ -11,12 +11,18 @@ function GLeftMain() {
 
     const navigate = useNavigate();
     const [profilePic, setProfilePic] = useState(null);
+    const [name, setName] = useState('');
 
     useEffect(() => {
         fetchCurrentUser()
             .then(u => {
-                if (u && u.profilePictureBase64) {
-                    setProfilePic(u.profilePictureBase64);
+                if (u) {
+                    if (u.profilePictureBase64) {
+                        setProfilePic(u.profilePictureBase64);
+                    }
+                    if (u.displayName) {
+                        setName(u.displayName);
+                    }
                 }
             })
             .catch(() => {});
@@ -37,7 +43,7 @@ function GLeftMain() {
                     </div>
                     <div className="left-main-top-section-name-container">
                         <div className="left-main-top-section-name-text">
-                            Ірина
+                            {name}
                         </div>
                         <div className="left-main-top-section-guest-text">
                         </div>
@@ -48,7 +54,7 @@ function GLeftMain() {
                 <div className="left-main-bottom-section-box">
                     <div className="left-main-bottom-box-section">
                         <div className="left-section-bottom-box-text">
-                            <b>Підтверджена інормація про користувача Ірина</b>
+                            <b>Підтверджена інормація про користувача {name}</b>
                         </div>
                     </div>
                     <div className="left-main-bottom-box-section">

@@ -7,7 +7,7 @@ export const PRightMain = ({ image }) => {
 
   // 1) One state object for all fields
   const [profile, setProfile] = useState({
-    university: "", living: "", bd: "", interest: "",
+    name: "", university: "", living: "", bd: "", interest: "",
     skill: "", time: "", job: "", lang: "",
     song: "", fact: "", bio: "", pets: ""
   });
@@ -17,6 +17,7 @@ export const PRightMain = ({ image }) => {
       .then(u => {
         if (u) {
           setProfile({
+            name:       u.displayName || "",
             university: u.university || "",
             living:     u.livingPlace || "",
             bd:         u.birthDecade || "",
@@ -55,7 +56,8 @@ export const PRightMain = ({ image }) => {
       FavoriteSong:profile.song,
       FunFact:     profile.fact,
       BioHeadline: profile.bio,
-      Pets:        profile.pets
+      Pets:        profile.pets,
+      DisplayName: profile.name
     };
 
     const token = localStorage.getItem('token');
@@ -80,6 +82,15 @@ export const PRightMain = ({ image }) => {
       {/* … your text above … */}
       <div className="p-r-main-form-c">
         <div className="p-r-main-form-l-r" style={{ paddingRight: 40 }}>
+          <div className="p-r-main-form-box">
+            <input
+              id="name"
+              value={profile.name}
+              onChange={handleChange}
+              placeholder="Ім'я відображення"
+            />
+            <hr />
+          </div>
           {["university","living","bd","interest","skill","time"].map(field => (
             <div key={field} className="p-r-main-form-box">
               <input
