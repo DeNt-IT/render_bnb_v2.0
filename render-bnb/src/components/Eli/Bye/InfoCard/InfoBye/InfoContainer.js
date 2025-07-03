@@ -36,7 +36,6 @@ const InfoContainer = () => {
 
             <div className= "bedroom-info-cont">
                 <div className='title-bedroom'>Місце для сну</div>
-                <img src={bedroom} alt="Bedroom" className="bedroom-img" />
                 <div className= "titlt-bedroom">Спальня</div>
                 <div className= "add-info-beedroom">1 ліжко king-size</div>
             </div>

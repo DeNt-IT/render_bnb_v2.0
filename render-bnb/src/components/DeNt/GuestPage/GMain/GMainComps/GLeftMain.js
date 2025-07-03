@@ -50,7 +50,7 @@ function GLeftMain() {
                     </div>
                 </div>
             </div>
-            <div className="left-main-bottom-section-container">
+            {/* <div className="left-main-bottom-section-container">
                 <div className="left-main-bottom-section-box">
                     <div className="left-main-bottom-box-section">
                         <div className="left-section-bottom-box-text">
@@ -83,7 +83,7 @@ function GLeftMain() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
