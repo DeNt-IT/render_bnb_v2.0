@@ -30,7 +30,6 @@ const PriceDetails = ({ price, rating, days }) => {
         if (arrival) {
             const diff = (new Date(val) - new Date(arrival)) / 86400000;
             if (diff <= 0) return;
-            if (maxDays && diff > maxDays) return;
         }
         setDeparture(val);
     };
@@ -46,10 +45,10 @@ const PriceDetails = ({ price, rating, days }) => {
         <div className="absol-container">
             <div className="abcol-block">
                 <div className="price-details">
-                    <div className="price-for-absol">{price} ніч</div>
+                    <div className="price-for-absol">{price}$ ніч</div>
                     <div className="reting-fot-absol">
                         <img src={star} alt="Star" className="star-reting" />
-                        {rating}
+                        {rating} рейтинг
                     </div>
                 </div>
                 <div className="table-details">

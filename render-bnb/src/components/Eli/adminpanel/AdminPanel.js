@@ -130,12 +130,9 @@ const AdminPanel = () => {
         readers.push(reader);
         reader.onloadend = () => {
           const base64String = reader.result;
-          if (index === 0) {
-            setPreviewImage(base64String);
+            // setPreviewImage(base64String);
             setCurrentProduct({ ...currentProduct, imageBase64: base64String });
-          } else {
             setAdditionalImages(prev => [...prev, base64String]);
-          }
         };
         reader.readAsDataURL(file);
       });

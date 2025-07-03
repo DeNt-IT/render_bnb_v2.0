@@ -12,7 +12,7 @@ using Render_BnB_v2.Data;
 namespace RenderBnBv2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250702120541_AddNamePhotosComments")]
+    [Migration("20250702231140_AddNamePhotosComments")]
     partial class AddNamePhotosComments
     {
         /// <inheritdoc />
@@ -144,6 +144,10 @@ namespace RenderBnBv2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BirthDecade")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
