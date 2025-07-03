@@ -35,6 +35,13 @@ const PriceDetails = ({ price, rating, days }) => {
     };
 
     const handleClickPay = () => {
+        const bookingInfo = {
+            arrival,
+            departure,
+            guests,
+            price: parseFloat(price) || 0
+        };
+        localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
         navigate('/paypage');
     };
 
